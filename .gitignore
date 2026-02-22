@@ -15,9 +15,6 @@ TestResults/
 # Logs
 *.log
 
-# OS files
-.DS_Store
-Thumbs.db
 
 # Test files
-*.trx
+*.trx1
