@@ -3,7 +3,7 @@
 
 QuantityMeasurementApp is a C# console application for handling length measurements. It supports equality checks, unit conversions, and arithmetic operations across multiple units (feet, inches, yards, centimeters). The project demonstrates OOP concepts, DRY principle, and scalable design.
 
-**Use Cases**
+**Use Cases**                                                    
 **UC1: Feet Measurement Equality**
 
 - Compares two feet values for equality.
@@ -43,8 +43,7 @@ QuantityMeasurementApp is a C# console application for handling length measureme
 - Result expressed in the unit of the first operand.
 - Handles same-unit and cross-unit addition.
 - Maintains immutability, commutativity, and precision.
-- Examples: 1 FEET + 12 INCHES → 2 FEET
-            2.54 CM + 1 INCH → ~5.08 CM
+- Examples: 1 FEET + 12 INCHES → 2 FEET  ; 2.54 CM + 1 INCH → ~5.08 CM
 
   
 **Key Concepts Across All UCs**
