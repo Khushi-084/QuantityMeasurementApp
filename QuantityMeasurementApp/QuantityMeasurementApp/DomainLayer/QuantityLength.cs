@@ -2,7 +2,7 @@ using System;
 
 namespace QuantityMeasurementApp.DomainLayer
 {
-    public class QuantityLength
+    public class QuantityLength      //one genric class that works with multiple units
     {
         private const double MAX_VALUE = 10000;
 
@@ -21,7 +21,7 @@ namespace QuantityMeasurementApp.DomainLayer
             Unit = unit;
         }
 
-        private double ConvertToFeet()
+        private double ConvertToFeet()      // converts any unit into FEET
         {
             return Value * Unit.ToFeet();
         }
@@ -31,10 +31,10 @@ namespace QuantityMeasurementApp.DomainLayer
             if (obj == null)
                 return false;
 
-            if (ReferenceEquals(this, obj))
+            if (ReferenceEquals(this, obj))   // If both objects are actually same object in memory → return true immediately.
                 return true;
 
-            if (obj is not QuantityLength other)
+            if (obj is not QuantityLength other)   // If object is not QuantityLength → cannot compare → false.
                 return false;
 
             return Math.Abs(this.ConvertToFeet() - other.ConvertToFeet()) < 0.0001;
