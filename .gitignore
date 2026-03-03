@@ -1,0 +1,23 @@
+# Build folders
+bin/
+obj/
+
+# Test results
+TestResults/
+
+# VS Code settings
+.vscode/
+
+# User files
+*.user
+*.suo
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+*.trx
