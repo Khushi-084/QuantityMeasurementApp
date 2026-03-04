@@ -54,6 +54,46 @@ QuantityMeasurementApp is a C# console application for handling length measureme
 - Uses method overloading and private utility method for clean, DRY implementation.
 - Examples:add(1 FEET, 12 INCHES, FEET) → 2 FEET
 
+**UC8: Subtraction of Two Length Units**
+
+- Supports subtraction of two length quantities.
+- Handles same-unit and cross-unit subtraction.
+- Performs automatic unit conversion before subtraction.
+- Result expressed in: Default → first operand’s unit. OR explicitly specified target unit (method overloading).
+- Supports negative results.
+- Maintains immutability of objects.
+- Ensures precision using epsilon-based floating-point comparison.
+- Validates null and invalid inputs; throws appropriate exceptions.
+- Preserves arithmetic properties and safe operations.
+
+**UC9: Multi-Category Measurement Support**
+
+- Extends application to support multiple measurement categories.
+- Introduces separate classes:QuantityLength, QuantityVolume, QuantityWeight
+- Each category has its own unit enum.
+- Supports equality, conversion, addition, and subtraction per category.
+- Prevents cross-category operations (Length ≠ Volume ≠ Weight).
+- Throws exception for invalid cross-category arithmetic.
+- Demonstrates strong type safety.
+- Improves functional scalability but introduces code duplication.
+- Highlights design limitation (violates DRY principle).
+
+**UC10: Generic Quantity Class with Unit Interface**
+
+- Refactors UC9 into a single generic architecture.
+- Introduces generic class: Quantity<TUnit>.
+- Implements common IUnit interface for all unit types.
+- Eliminates duplication across measurement categories.
+- Supports unlimited categories (Length, Volume, Weight, future types).
+- Maintains immutability and value-based equality.
+- Prevents cross-category operations at compile-time.
+- Centralizes conversion logic via interface implementation.
+- Follows DRY principle strictly.
+- Applies Open/Closed Principle (OCP).
+- Enables scalable, maintainable, and clean design.
+- Adding a new measurement category requires minimal changes.
+
+  
 **Key Concepts Across All UCs**
 - Object-Oriented Design: Encapsulation, immutability, abstraction.
 - Equality: Reflexive, symmetric, transitive, epsilon-based floating-point comparison.
