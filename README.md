@@ -116,3 +116,13 @@ QuantityMeasurementApp is a C# console application for handling length measureme
 - Uses an ArithmeticOperation enum to dispatch operations such as ADD, SUBTRACT, and DIVIDE.
 - Ensures consistent validation, error handling, and base-unit conversion across all operations.
 - Improves maintainability and scalability, making it easy to add future operations like multiplication.
+
+**UC14: Temperature Measurement with Selective Arithmetic Support**
+
+- Adds Temperature measurement support to the system using a new TemperatureUnit enum (Celsius, Fahrenheit, Kelvin).
+- Refactors the IMeasurable interface using default methods so some measurement categories can disable unsupported operations.
+- Allows temperature equality checks and unit conversions, but blocks arithmetic operations like addition, subtraction, and division.
+- Introduces a SupportsArithmetic functional interface with lambda expressions to indicate whether a unit supports arithmetic operations.
+- Maintains type safety and clear error handling, throwing UnsupportedOperationException when unsupported temperature operations are attempted.
+
+  
