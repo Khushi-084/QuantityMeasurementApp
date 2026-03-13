@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuantityMeasurementModel.Entities;
-using QuantityMeasurementModel.Interfaces;
+using QuantityMeasurementBusinessLayer;
 
 namespace QuantityMeasurementApp.Tests
 {

@@ -5,10 +5,10 @@ namespace QuantityMeasurementRepository
     /// Persists measurement history for the lifetime of the application.
     /// Optionally serializes to disk for cross-restart persistence.
     /// </summary>
-    public sealed class QuantityMeasurementCacheRepository : IQuantityMeasurementRepository
+    public class QuantityMeasurementCacheRepository : IQuantityMeasurementRepository
     {
         // ---- Singleton ----
-        private static readonly Lazy<QuantityMeasurementCacheRepository> _instance =new(() => new QuantityMeasurementCacheRepository());
+        public static readonly Lazy<QuantityMeasurementCacheRepository> _instance =new(() => new QuantityMeasurementCacheRepository());
 
         public static QuantityMeasurementCacheRepository Instance => _instance.Value;
 

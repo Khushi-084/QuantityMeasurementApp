@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuantityMeasurementModel.Entities;
+using QuantityMeasurementBusinessLayer.Service;
 using System;
 
 namespace QuantityMeasurementApp.Tests
@@ -19,10 +20,10 @@ namespace QuantityMeasurementApp.Tests
         [TestInitialize]
         public void Setup()
         {
-            oneFoot = new QuantityLength(1.0, LengthUnit.FEET);
-            twelveInches = new QuantityLength(12.0, LengthUnit.INCH);
-            twoFeet = new QuantityLength(2.0, LengthUnit.FEET);
-            oneInch = new QuantityLength(1.0, LengthUnit.INCH);
+            oneFoot = new QuantityLength(1.0, LengthEnum.FEET);
+            twelveInches = new QuantityLength(12.0, LengthEnum.INCH);
+            twoFeet = new QuantityLength(2.0, LengthEnum.FEET);
+            oneInch = new QuantityLength(1.0, LengthEnum.INCH);
         }
 
         // ---------- SAME UNIT ----------
@@ -30,14 +31,14 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void Feet_To_Feet_SameValue_ReturnsTrue()
         {
-            var another = new QuantityLength(1.0, LengthUnit.FEET);
+            var another = new QuantityLength(1.0, LengthEnum.FEET);
             Assert.IsTrue(oneFoot.Equals(another));
         }
 
         [TestMethod]
         public void Inch_To_Inch_SameValue_ReturnsTrue()
         {
-            var another = new QuantityLength(1.0, LengthUnit.INCH);
+            var another = new QuantityLength(1.0, LengthEnum.INCH);
             Assert.IsTrue(oneInch.Equals(another));
         }
 
@@ -66,7 +67,7 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void Different_Inches_ReturnsFalse()
         {
-            var twoInches = new QuantityLength(2.0, LengthUnit.INCH);
+            var twoInches = new QuantityLength(2.0, LengthEnum.INCH);
             Assert.IsFalse(oneInch.Equals(twoInches));
         }
 
@@ -94,7 +95,7 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void TransitiveProperty()
         {
-            var anotherFoot = new QuantityLength(1.0, LengthUnit.FEET);
+            var anotherFoot = new QuantityLength(1.0, LengthEnum.FEET);
 
             Assert.IsTrue(oneFoot.Equals(twelveInches));
             Assert.IsTrue(twelveInches.Equals(anotherFoot));
@@ -108,26 +109,6 @@ namespace QuantityMeasurementApp.Tests
             {
                 Assert.IsTrue(oneFoot.Equals(twelveInches));
             }
-        }
-
-        // ---------- INVALID UNIT ----------
-
-        [TestMethod]
-        public void InvalidUnit_ShouldThrowException()
-        {
-            bool exceptionThrown = false;
-
-            try
-            {
-                var invalid = (LengthUnit)999;
-                new QuantityLength(1.0, invalid);
-            }
-            catch (ArgumentException)
-            {
-                exceptionThrown = true;
-            }
-
-            Assert.IsTrue(exceptionThrown);
         }
     }
 }

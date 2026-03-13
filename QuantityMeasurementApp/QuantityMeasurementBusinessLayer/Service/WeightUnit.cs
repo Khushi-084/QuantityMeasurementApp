@@ -6,12 +6,7 @@ namespace QuantityMeasurementModel.Entities
     /// UC9: Standalone weight unit enum with conversion responsibility.
     /// Base unit is KILOGRAM. All conversions normalize through kilograms.
     /// </summary>
-    public enum WeightUnit
-    {
-        KILOGRAM,
-        GRAM,
-        POUND
-    }
+    
 
     public static class WeightUnitExtensions
     {

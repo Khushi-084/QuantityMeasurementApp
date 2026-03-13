@@ -7,12 +7,7 @@ namespace QuantityMeasurementModel.Entities
     /// Base unit is LITRE. All conversions normalize through litres.
     /// Supports: LITRE, MILLILITRE, GALLON.
     /// </summary>
-    public enum VolumeUnit
-    {
-        LITRE,
-        MILLILITRE,
-        GALLON
-    }
+   
 
     public static class VolumeUnitExtensions
     {

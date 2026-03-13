@@ -1,7 +1,6 @@
 using System;
-using QuantityMeasurementModel.Interfaces;
 
-namespace QuantityMeasurementModel.Entities
+namespace QuantityMeasurementBusinessLayer
 {
     /// <summary>
     /// UC10: Generic, type-safe Quantity class that works with any IMeasurable unit.

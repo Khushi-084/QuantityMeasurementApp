@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuantityMeasurementModel.Entities;
-using QuantityMeasurementBusinessLayer;
-using QuantityMeasurementRepository;
+using QuantityMeasurementBusinessLayer.Service;
 using System.Reflection;
 
 namespace QuantityMeasurementApp.Tests
@@ -20,25 +19,25 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testLengthUnitEnum_FeetConstant()
         {
-            Assert.AreEqual(1.0, LengthUnit.FEET.GetConversionFactor(), 1e-10);
+            Assert.AreEqual(1.0, LengthEnum.FEET.GetConversionFactor(), 1e-10);
         }
 
         [TestMethod]
         public void testLengthUnitEnum_InchesConstant()
         {
-            Assert.AreEqual(1.0 / 12.0, LengthUnit.INCH.GetConversionFactor(), 1e-10);
+            Assert.AreEqual(1.0 / 12.0, LengthEnum.INCH.GetConversionFactor(), 1e-10);
         }
 
         [TestMethod]
         public void testLengthUnitEnum_YardsConstant()
         {
-            Assert.AreEqual(3.0, LengthUnit.YARD.GetConversionFactor(), 1e-10);
+            Assert.AreEqual(3.0, LengthEnum.YARD.GetConversionFactor(), 1e-10);
         }
 
         [TestMethod]
         public void testLengthUnitEnum_CentimetersConstant()
         {
-            Assert.AreEqual(0.0328084, LengthUnit.CENTIMETER.GetConversionFactor(), 1e-6);
+            Assert.AreEqual(0.0328084, LengthEnum.CENTIMETER.GetConversionFactor(), 1e-6);
         }
 
         // ---------- Base unit conversion (to feet) ----------
@@ -46,25 +45,25 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testConvertToBaseUnit_FeetToFeet()
         {
-            Assert.AreEqual(5.0, LengthUnit.FEET.ConvertToBaseUnit(5.0), 1e-10);
+            Assert.AreEqual(5.0, LengthEnum.FEET.ConvertToBaseUnit(5.0), 1e-10);
         }
 
         [TestMethod]
         public void testConvertToBaseUnit_InchesToFeet()
         {
-            Assert.AreEqual(1.0, LengthUnit.INCH.ConvertToBaseUnit(12.0), 1e-10);
+            Assert.AreEqual(1.0, LengthEnum.INCH.ConvertToBaseUnit(12.0), 1e-10);
         }
 
         [TestMethod]
         public void testConvertToBaseUnit_YardsToFeet()
         {
-            Assert.AreEqual(3.0, LengthUnit.YARD.ConvertToBaseUnit(1.0), 1e-10);
+            Assert.AreEqual(3.0, LengthEnum.YARD.ConvertToBaseUnit(1.0), 1e-10);
         }
 
         [TestMethod]
         public void testConvertToBaseUnit_CentimetersToFeet()
         {
-            Assert.AreEqual(1.0, LengthUnit.CENTIMETER.ConvertToBaseUnit(30.48), EPSILON);
+            Assert.AreEqual(1.0, LengthEnum.CENTIMETER.ConvertToBaseUnit(30.48), EPSILON);
         }
 
         // ---------- From base unit (feet → unit) ----------
@@ -72,25 +71,25 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testConvertFromBaseUnit_FeetToFeet()
         {
-            Assert.AreEqual(2.0, LengthUnit.FEET.ConvertFromBaseUnit(2.0), 1e-10);
+            Assert.AreEqual(2.0, LengthEnum.FEET.ConvertFromBaseUnit(2.0), 1e-10);
         }
 
         [TestMethod]
         public void testConvertFromBaseUnit_FeetToInches()
         {
-            Assert.AreEqual(12.0, LengthUnit.INCH.ConvertFromBaseUnit(1.0), 1e-10);
+            Assert.AreEqual(12.0, LengthEnum.INCH.ConvertFromBaseUnit(1.0), 1e-10);
         }
 
         [TestMethod]
         public void testConvertFromBaseUnit_FeetToYards()
         {
-            Assert.AreEqual(1.0, LengthUnit.YARD.ConvertFromBaseUnit(3.0), 1e-10);
+            Assert.AreEqual(1.0, LengthEnum.YARD.ConvertFromBaseUnit(3.0), 1e-10);
         }
 
         [TestMethod]
         public void testConvertFromBaseUnit_FeetToCentimeters()
         {
-            Assert.AreEqual(30.48, LengthUnit.CENTIMETER.ConvertFromBaseUnit(1.0), EPSILON);
+            Assert.AreEqual(30.48, LengthEnum.CENTIMETER.ConvertFromBaseUnit(1.0), EPSILON);
         }
 
         // ---------- QuantityLength refactored behavior ----------
@@ -98,51 +97,51 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testQuantityLengthRefactored_Equality()
         {
-            var a = new QuantityLength(1.0, LengthUnit.FEET);
-            var b = new QuantityLength(12.0, LengthUnit.INCH);
+            var a = new QuantityLength(1.0, LengthEnum.FEET);
+            var b = new QuantityLength(12.0, LengthEnum.INCH);
             Assert.IsTrue(a.Equals(b));
         }
 
         [TestMethod]
         public void testQuantityLengthRefactored_ConvertTo()
         {
-            var q = new QuantityLength(1.0, LengthUnit.FEET);
-            var result = q.ConvertTo(LengthUnit.INCH);
+            var q = new QuantityLength(1.0, LengthEnum.FEET);
+            var result = q.ConvertTo(LengthEnum.INCH);
             Assert.AreEqual(12.0, result.Value, 1e-10);
-            Assert.AreEqual(LengthUnit.INCH, result.Unit);
+            Assert.AreEqual(LengthEnum.INCH, result.Unit);
         }
 
         [TestMethod]
         public void testQuantityLengthRefactored_Add()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.FEET);
-            var q2 = new QuantityLength(12.0, LengthUnit.INCH);
-            var result = q1.Add(q2, LengthUnit.FEET);
+            var q1 = new QuantityLength(1.0, LengthEnum.FEET);
+            var q2 = new QuantityLength(12.0, LengthEnum.INCH);
+            var result = q1.Add(q2, LengthEnum.FEET);
             Assert.AreEqual(2.0, result.Value, 0.0001);
-            Assert.AreEqual(LengthUnit.FEET, result.Unit);
+            Assert.AreEqual(LengthEnum.FEET, result.Unit);
         }
 
         [TestMethod]
         public void testQuantityLengthRefactored_AddWithTargetUnit()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.FEET);
-            var q2 = new QuantityLength(12.0, LengthUnit.INCH);
-            var result = q1.Add(q2, LengthUnit.YARD);
+            var q1 = new QuantityLength(1.0, LengthEnum.FEET);
+            var q2 = new QuantityLength(12.0, LengthEnum.INCH);
+            var result = q1.Add(q2, LengthEnum.YARD);
             Assert.AreEqual(0.67, result.Value, EPSILON);
-            Assert.AreEqual(LengthUnit.YARD, result.Unit);
+            Assert.AreEqual(LengthEnum.YARD, result.Unit);
         }
 
         [TestMethod]
         public void testQuantityLengthRefactored_NullUnit()
         {
             // Simulate a null/invalid unit using an out-of-range enum value.
-            Assert.Throws<ArgumentException>(() => _ = new QuantityLength(1.0, (LengthUnit)(-1)));
+            Assert.Throws<ArgumentException>(() => _ = new QuantityLength(1.0, (LengthEnum)(-1)));
         }
 
         [TestMethod]
         public void testQuantityLengthRefactored_InvalidValue()
         {
-            Assert.Throws<ArgumentException>(() => _ = new QuantityLength(double.NaN, LengthUnit.FEET));
+            Assert.Throws<ArgumentException>(() => _ = new QuantityLength(double.NaN, LengthEnum.FEET));
         }
 
         // ---------- Backward compatibility ----------
@@ -150,8 +149,8 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testBackwardCompatibility_UC5ConversionTests()
         {
-            double feetToInch = QuantityLength.Convert(1.0, LengthUnit.FEET, LengthUnit.INCH);
-            double inchToFeet = QuantityLength.Convert(24.0, LengthUnit.INCH, LengthUnit.FEET);
+            double feetToInch = QuantityLength.Convert(1.0, LengthEnum.FEET, LengthEnum.INCH);
+            double inchToFeet = QuantityLength.Convert(24.0, LengthEnum.INCH, LengthEnum.FEET);
 
             Assert.AreEqual(12.0, feetToInch, 1e-10);
             Assert.AreEqual(2.0, inchToFeet, 1e-10);
@@ -160,8 +159,8 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testBackwardCompatibility_UC6AdditionTests()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.FEET);
-            var q2 = new QuantityLength(1.0, LengthUnit.FEET);
+            var q1 = new QuantityLength(1.0, LengthEnum.FEET);
+            var q2 = new QuantityLength(1.0, LengthEnum.FEET);
 
             var result = q1.Add(q2);
 
@@ -171,10 +170,10 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testBackwardCompatibility_UC7AdditionWithTargetUnitTests()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.FEET);
-            var q2 = new QuantityLength(12.0, LengthUnit.INCH);
+            var q1 = new QuantityLength(1.0, LengthEnum.FEET);
+            var q2 = new QuantityLength(12.0, LengthEnum.INCH);
 
-            var result = q1.Add(q2, LengthUnit.YARD);
+            var result = q1.Add(q2, LengthEnum.YARD);
 
             Assert.AreEqual(0.67, result.ConvertToFeet() / 3.0, EPSILON);
         }
@@ -189,15 +188,15 @@ namespace QuantityMeasurementApp.Tests
                 .GetField("unit", BindingFlags.NonPublic | BindingFlags.Instance);
 
             Assert.IsNotNull(unitField);
-            Assert.AreEqual(typeof(LengthUnit), unitField!.FieldType);
+            Assert.AreEqual(typeof(LengthEnum), unitField!.FieldType);
         }
 
         [TestMethod]
         public void testRoundTripConversion_RefactoredDesign()
         {
             double value = 100.0;
-            double inFeet = LengthUnit.INCH.ConvertToBaseUnit(value);
-            double back = LengthUnit.INCH.ConvertFromBaseUnit(inFeet);
+            double inFeet = LengthEnum.INCH.ConvertToBaseUnit(value);
+            double back = LengthEnum.INCH.ConvertFromBaseUnit(inFeet);
 
             Assert.AreEqual(value, back, 1e-10);
         }
@@ -205,8 +204,8 @@ namespace QuantityMeasurementApp.Tests
         [TestMethod]
         public void testUnitImmutability()
         {
-            var feet1 = LengthUnit.FEET;
-            var feet2 = LengthUnit.FEET;
+            var feet1 = LengthEnum.FEET;
+            var feet2 = LengthEnum.FEET;
 
             Assert.AreEqual(feet1, feet2);
             Assert.AreEqual(feet1.GetHashCode(), feet2.GetHashCode());

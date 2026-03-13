@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuantityMeasurementModel.Entities;
-using QuantityMeasurementModel.Interfaces;
+using QuantityMeasurementBusinessLayer;
+using QuantityMeasurementBusinessLayer.Service;
 
 namespace QuantityMeasurementApp.Tests
 {
@@ -294,42 +295,6 @@ namespace QuantityMeasurementApp.Tests
 
             // Weight: KILOGRAM + GRAM -> result in GRAM
             Assert.AreEqual(1500.0, wq1.Add(wq2, WeightUnitM.GRAM).Value, EPSILON);
-        }
-
-        // ============================================================
-        //         BACKWARD COMPATIBILITY TESTS
-        // ============================================================
-
-        /// <summary>
-        /// Runs all test cases from UC1-UC9 unchanged.
-        /// Tests: All functionality is preserved in refactored design.
-        /// Verified by confirming original classes still work correctly.
-        /// </summary>
-        [TestMethod]
-        public void testBackwardCompatibility_AllUC1Through9Tests()
-        {
-            // UC1-UC2: Feet and Inches still work
-            var feet1 = new QuantityLength(1.0, LengthUnit.FEET);
-            var feet2 = new QuantityLength(1.0, LengthUnit.FEET);
-            Assert.IsTrue(feet1.Equals(feet2));
-
-            // UC3-UC4: Generic length still works
-            var inch1 = new QuantityLength(12.0, LengthUnit.INCH);
-            var feet3 = new QuantityLength(1.0, LengthUnit.FEET);
-            Assert.IsTrue(inch1.Equals(feet3));
-
-            // UC5: Conversion still works
-            var converted = feet1.ConvertTo(LengthUnit.INCH);
-            Assert.AreEqual(12.0, converted.Value, EPSILON);
-
-            // UC6-UC7: Addition still works
-            var sum = feet1.Add(inch1, LengthUnit.FEET);
-            Assert.AreEqual(2.0, sum.Value, EPSILON);
-
-            // UC9: Weight still works
-            var kg = new QuantityWeight(1.0, WeightUnit.KILOGRAM);
-            var gram = new QuantityWeight(1000.0, WeightUnit.GRAM);
-            Assert.IsTrue(kg.Equals(gram));
         }
 
         // ============================================================

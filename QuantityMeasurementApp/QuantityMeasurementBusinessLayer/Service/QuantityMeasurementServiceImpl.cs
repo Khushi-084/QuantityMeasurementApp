@@ -1,4 +1,4 @@
-using QuantityMeasurementModel.Interfaces;
+using QuantityMeasurementBusinessLayer;
 using QuantityMeasurementModel.Entities;
 using QuantityMeasurementModel;
 using QuantityMeasurementRepository;
@@ -9,8 +9,8 @@ namespace QuantityMeasurementBusinessLayer
     /// UC15: Service implementation.
     /// UC15 Data Flow per operation:
     ///   1. Accept QuantityDTO
-    ///   2. Extract QuantityModel   ← NEW STEP
-    ///   3. Validate QuantityModel  ← NEW STEP
+    ///   2. Extract QuantityModel   = NEW STEP
+    ///   3. Validate QuantityModel  = NEW STEP
     ///   4. Perform business logic using QuantityModel
     ///   5. Handle exceptions → QuantityMeasurementException
     ///   6. Save QuantityMeasurementEntity to Repository
@@ -21,11 +21,9 @@ namespace QuantityMeasurementBusinessLayer
         private readonly IQuantityMeasurementRepository _repository;
 
         // Constructor Injection (Dependency Injection)
-        public QuantityMeasurementServiceImpl(
-            IQuantityMeasurementRepository repository)
+        public QuantityMeasurementServiceImpl(IQuantityMeasurementRepository repository)
         {
-            _repository = repository
-                ?? throw new ArgumentNullException(nameof(repository));
+            _repository = repository?? throw new ArgumentNullException(nameof(repository));
         }
 
         // ── COMPARE ──────────────────────────────────────────────────────
@@ -39,24 +37,18 @@ namespace QuantityMeasurementBusinessLayer
                 // Step 2: Extract QuantityModel
                 // Step 3: Validate + Step 4: Business logic
                 bool equal  = CompareUsingModel(q1, q2);
-                var  result = new QuantityDTO(
-                    equal ? 1 : 0,
-                    equal ? "EQUAL" : "NOT_EQUAL",
-                    "RESULT");
+                var  result = new QuantityDTO(equal ? 1 : 0,equal ? "EQUAL" : "NOT_EQUAL","RESULT");
 
                 // Step 6: Save to repository
-                _repository.Save(
-                    new QuantityMeasurementEntity("COMPARE", q1, q2, result));
+                _repository.Save(new QuantityMeasurementEntity("COMPARE", q1, q2, result));
 
                 // Step 7: Return QuantityDTO
                 return result;
             }
             catch (Exception ex) when (ex is not QuantityMeasurementException)
             {
-                _repository.Save(
-                    new QuantityMeasurementEntity("COMPARE", q1, q2, ex.Message));
-                throw new QuantityMeasurementException(
-                    $"Compare failed: {ex.Message}", ex);
+                _repository.Save(new QuantityMeasurementEntity("COMPARE", q1, q2, ex.Message));
+                throw new QuantityMeasurementException($"Compare failed: {ex.Message}", ex);
             }
         }
 
@@ -71,17 +63,14 @@ namespace QuantityMeasurementBusinessLayer
                 var result = ConvertUsingModel(q1, targetUnitDTO.UnitName);
 
                 // Step 6: Save
-                _repository.Save(
-                    new QuantityMeasurementEntity("CONVERT", q1, result));
+                _repository.Save(new QuantityMeasurementEntity("CONVERT", q1, result));
 
                 return result;
             }
             catch (Exception ex) when (ex is not QuantityMeasurementException)
             {
-                _repository.Save(
-                    new QuantityMeasurementEntity("CONVERT", q1, null, ex.Message));
-                throw new QuantityMeasurementException(
-                    $"Convert failed: {ex.Message}", ex);
+                _repository.Save(new QuantityMeasurementEntity("CONVERT", q1, null, ex.Message));
+                throw new QuantityMeasurementException($"Convert failed: {ex.Message}", ex);
             }
         }
 
@@ -94,23 +83,19 @@ namespace QuantityMeasurementBusinessLayer
             try
             {
                 var result = ArithmeticUsingModel(q1, q2, "ADD");
-                _repository.Save(
-                    new QuantityMeasurementEntity("ADD", q1, q2, result));
+                _repository.Save(new QuantityMeasurementEntity("ADD", q1, q2, result));
                 return result;
             }
             catch (NotSupportedException)
             {
                 string msg = "Temperature does not support Add.";
-                _repository.Save(
-                    new QuantityMeasurementEntity("ADD", q1, q2, msg));
+                _repository.Save(new QuantityMeasurementEntity("ADD", q1, q2, msg));
                 throw new QuantityMeasurementException(msg);
             }
             catch (Exception ex) when (ex is not QuantityMeasurementException)
             {
-                _repository.Save(
-                    new QuantityMeasurementEntity("ADD", q1, q2, ex.Message));
-                throw new QuantityMeasurementException(
-                    $"Add failed: {ex.Message}", ex);
+                _repository.Save(new QuantityMeasurementEntity("ADD", q1, q2, ex.Message));
+                throw new QuantityMeasurementException($"Add failed: {ex.Message}", ex);
             }
         }
 
@@ -123,23 +108,20 @@ namespace QuantityMeasurementBusinessLayer
             try
             {
                 var result = ArithmeticUsingModel(q1, q2, "SUBTRACT");
-                _repository.Save(
-                    new QuantityMeasurementEntity("SUBTRACT", q1, q2, result));
+                _repository.Save(new QuantityMeasurementEntity("SUBTRACT", q1, q2, result));
                 return result;
             }
             catch (NotSupportedException)
             {
                 string msg = "Temperature does not support Subtract.";
-                _repository.Save(
-                    new QuantityMeasurementEntity("SUBTRACT", q1, q2, msg));
+                _repository.Save(new QuantityMeasurementEntity("SUBTRACT", q1, q2, msg));
                 throw new QuantityMeasurementException(msg);
             }
             catch (Exception ex) when (ex is not QuantityMeasurementException)
             {
                 _repository.Save(
                     new QuantityMeasurementEntity("SUBTRACT", q1, q2, ex.Message));
-                throw new QuantityMeasurementException(
-                    $"Subtract failed: {ex.Message}", ex);
+                throw new QuantityMeasurementException($"Subtract failed: {ex.Message}", ex);
             }
         }
 
@@ -152,23 +134,19 @@ namespace QuantityMeasurementBusinessLayer
             try
             {
                 var result = ArithmeticUsingModel(q1, q2, "DIVIDE");
-                _repository.Save(
-                    new QuantityMeasurementEntity("DIVIDE", q1, q2, result));
+                _repository.Save(new QuantityMeasurementEntity("DIVIDE", q1, q2, result));
                 return result;
             }
             catch (NotSupportedException)
             {
                 string msg = "Temperature does not support Divide.";
-                _repository.Save(
-                    new QuantityMeasurementEntity("DIVIDE", q1, q2, msg));
+                _repository.Save(new QuantityMeasurementEntity("DIVIDE", q1, q2, msg));
                 throw new QuantityMeasurementException(msg);
             }
             catch (Exception ex) when (ex is not QuantityMeasurementException)
             {
-                _repository.Save(
-                    new QuantityMeasurementEntity("DIVIDE", q1, q2, ex.Message));
-                throw new QuantityMeasurementException(
-                    $"Divide failed: {ex.Message}", ex);
+                _repository.Save(new QuantityMeasurementEntity("DIVIDE", q1, q2, ex.Message));
+                throw new QuantityMeasurementException($"Divide failed: {ex.Message}", ex);
             }
         }
 
@@ -210,32 +188,17 @@ namespace QuantityMeasurementBusinessLayer
             return q1.Category.ToUpperInvariant() switch
             {
                 "LENGTH" =>
-                    FromModel(
-                        ToModel<LengthUnitM>(q1)
-                            .ConvertTo(ResolveLengthUnit(targetUnit)),
-                        "LENGTH"),
+                    FromModel(ToModel<LengthUnitM>(q1).ConvertTo(ResolveLengthUnit(targetUnit)),"LENGTH"),
                 "WEIGHT" =>
-                    FromModel(
-                        ToModel<WeightUnitM>(q1)
-                            .ConvertTo(ResolveWeightUnit(targetUnit)),
-                        "WEIGHT"),
+                    FromModel(ToModel<WeightUnitM>(q1).ConvertTo(ResolveWeightUnit(targetUnit)),"WEIGHT"),
                 "VOLUME" =>
-                    FromModel(
-                        ToModel<VolumeUnitM>(q1)
-                            .ConvertTo(ResolveVolumeUnit(targetUnit)),
-                        "VOLUME"),
+                    FromModel(ToModel<VolumeUnitM>(q1).ConvertTo(ResolveVolumeUnit(targetUnit)),"VOLUME"),
                 "TEMPERATURE" =>
-                    FromModel(
-                        ToModel<TemperatureUnit>(q1)
-                            .ConvertTo(ResolveTempUnit(targetUnit)),
-                        "TEMPERATURE"),
-                _ => throw new QuantityMeasurementException(
-                        $"Unknown category: {q1.Category}")
+                    FromModel(ToModel<TemperatureUnit>(q1).ConvertTo(ResolveTempUnit(targetUnit)),"TEMPERATURE"),
+                _ => throw new QuantityMeasurementException($"Unknown category: {q1.Category}")
             };
         }
-
-        private QuantityDTO ArithmeticUsingModel(
-            QuantityDTO q1, QuantityDTO q2, string op)
+        private QuantityDTO ArithmeticUsingModel(QuantityDTO q1, QuantityDTO q2, string op)
         {
             return q1.Category.ToUpperInvariant() switch
             {
@@ -243,10 +206,8 @@ namespace QuantityMeasurementBusinessLayer
                 "WEIGHT"      => ApplyWeightOp(q1, q2, op),
                 "VOLUME"      => ApplyVolumeOp(q1, q2, op),
                 "TEMPERATURE" =>
-                    throw new NotSupportedException(
-                        "Temperature arithmetic not supported."),
-                _ => throw new QuantityMeasurementException(
-                        $"Unknown category: {q1.Category}")
+                    throw new NotSupportedException("Temperature arithmetic not supported."),
+                _ => throw new QuantityMeasurementException($"Unknown category: {q1.Category}")
             };
         }
 
@@ -265,10 +226,8 @@ namespace QuantityMeasurementBusinessLayer
 
             return op switch
             {
-                "ADD"      => FromModel(
-                                  ToModel(qa.Add(qb), modelA.Unit), "LENGTH"),
-                "SUBTRACT" => FromModel(
-                                  ToModel(qa.Subtract(qb), modelA.Unit), "LENGTH"),
+                "ADD"      => FromModel(ToModel(qa.Add(qb), modelA.Unit), "LENGTH"),
+                "SUBTRACT" => FromModel(ToModel(qa.Subtract(qb), modelA.Unit), "LENGTH"),
                 "DIVIDE"   => new QuantityDTO(qa.Divide(qb), "RATIO", "SCALAR"),
                 _ => throw new InvalidOperationException($"Unknown op: {op}")
             };
@@ -284,10 +243,8 @@ namespace QuantityMeasurementBusinessLayer
 
             return op switch
             {
-                "ADD"      => FromModel(
-                                  ToModel(qa.Add(qb), modelA.Unit), "WEIGHT"),
-                "SUBTRACT" => FromModel(
-                                  ToModel(qa.Subtract(qb), modelA.Unit), "WEIGHT"),
+                "ADD"      => FromModel(ToModel(qa.Add(qb), modelA.Unit), "WEIGHT"),
+                "SUBTRACT" => FromModel(ToModel(qa.Subtract(qb), modelA.Unit), "WEIGHT"),
                 "DIVIDE"   => new QuantityDTO(qa.Divide(qb), "RATIO", "SCALAR"),
                 _ => throw new InvalidOperationException($"Unknown op: {op}")
             };
@@ -303,10 +260,8 @@ namespace QuantityMeasurementBusinessLayer
 
             return op switch
             {
-                "ADD"      => FromModel(
-                                  ToModel(qa.Add(qb), modelA.Unit), "VOLUME"),
-                "SUBTRACT" => FromModel(
-                                  ToModel(qa.Subtract(qb), modelA.Unit), "VOLUME"),
+                "ADD"      => FromModel(ToModel(qa.Add(qb), modelA.Unit), "VOLUME"),
+                "SUBTRACT" => FromModel(ToModel(qa.Subtract(qb), modelA.Unit), "VOLUME"),
                 "DIVIDE"   => new QuantityDTO(qa.Divide(qb), "RATIO", "SCALAR"),
                 _ => throw new InvalidOperationException($"Unknown op: {op}")
             };
@@ -321,7 +276,8 @@ namespace QuantityMeasurementBusinessLayer
         private QuantityModel<U> ToModel<U>(QuantityDTO dto)
             where U : class, IMeasurable
         {
-            ValidateValue(dto.Value, $"Value '{dto.Value}'");
+            // Step 3: Validate value — reject negatives and unreasonably large numbers
+            ValidateValue(dto.Value, "Measurement value");
             var unit = (U)ResolveUnit(dto.UnitName, dto.Category);
             return new QuantityModel<U>(dto.Value, unit);
         }
@@ -362,69 +318,132 @@ namespace QuantityMeasurementBusinessLayer
             };
 
         private static LengthUnitM ResolveLengthUnit(string name)
-            => name.ToUpperInvariant() switch
+        {
+            // Normalize: trim whitespace, uppercase
+            string n = name.Trim().ToUpperInvariant();
+            return n switch
             {
-                "FEET"        or "FT" or "F"  => LengthUnitM.FEET,
-                "INCHES"      or "IN" or "I"  => LengthUnitM.INCHES,
-                "YARDS"       or "YD" or "Y"  => LengthUnitM.YARDS,
-                "CENTIMETERS" or "CM" or "C"  => LengthUnitM.CENTIMETERS,
+                // Full names
+                "FEET"        => LengthUnitM.FEET,
+                "FOOT"        => LengthUnitM.FEET,
+                "INCHES"      => LengthUnitM.INCHES,
+                "INCH"        => LengthUnitM.INCHES,
+                "YARDS"       => LengthUnitM.YARDS,
+                "YARD"        => LengthUnitM.YARDS,
+                "CENTIMETERS" => LengthUnitM.CENTIMETERS,
+                "CENTIMETER"  => LengthUnitM.CENTIMETERS,
+                // Short forms
+                "FT"          => LengthUnitM.FEET,
+                "FT."         => LengthUnitM.FEET,
+                "IN"          => LengthUnitM.INCHES,
+                "IN."         => LengthUnitM.INCHES,
+                "YD"          => LengthUnitM.YARDS,
+                "YD."         => LengthUnitM.YARDS,
+                "YDS"         => LengthUnitM.YARDS,
+                "CM"          => LengthUnitM.CENTIMETERS,
+                "CM."         => LengthUnitM.CENTIMETERS,
                 _ => throw new QuantityMeasurementException(
-                        $"Unknown length unit: '{name}'. Use FEET/FT/F, INCHES/IN/I, YARDS/YD/Y, CENTIMETERS/CM/C")
+                        $"Unknown length unit: '{name}'. Use: feet/ft, inches/in, yards/yd, centimeters/cm")
             };
+        }
 
         private static WeightUnitM ResolveWeightUnit(string name)
-            => name.ToUpperInvariant() switch
+        {
+            string n = name.Trim().ToUpperInvariant();
+            return n switch
             {
-                "KILOGRAM" or "KG" or "K" => WeightUnitM.KILOGRAM,
-                "GRAM"     or "G"         => WeightUnitM.GRAM,
-                "POUND"    or "LB" or "P" => WeightUnitM.POUND,
+                // Full names
+                "KILOGRAM"  => WeightUnitM.KILOGRAM,
+                "KILOGRAMS" => WeightUnitM.KILOGRAM,
+                "GRAM"      => WeightUnitM.GRAM,
+                "GRAMS"     => WeightUnitM.GRAM,
+                "POUND"     => WeightUnitM.POUND,
+                "POUNDS"    => WeightUnitM.POUND,
+                // Short forms
+                "KG"        => WeightUnitM.KILOGRAM,
+                "KG."       => WeightUnitM.KILOGRAM,
+                "G"         => WeightUnitM.GRAM,
+                "GR"        => WeightUnitM.GRAM,
+                "LB"        => WeightUnitM.POUND,
+                "LB."       => WeightUnitM.POUND,
+                "LBS"       => WeightUnitM.POUND,
+                "LBS."      => WeightUnitM.POUND,
                 _ => throw new QuantityMeasurementException(
-                        $"Unknown weight unit: '{name}'. Use KILOGRAM/KG/K, GRAM/G, POUND/LB/P")
+                        $"Unknown weight unit: '{name}'. Use: kilogram/kg, gram/g, pound/lb")
             };
+        }
 
         private static VolumeUnitM ResolveVolumeUnit(string name)
-            => name.ToUpperInvariant() switch
+        {
+            string n = name.Trim().ToUpperInvariant();
+            return n switch
             {
-                "LITRE"      or "L"   => VolumeUnitM.LITRE,
-                "MILLILITRE" or "ML"  => VolumeUnitM.MILLILITRE,
-                "GALLON"     or "GAL" => VolumeUnitM.GALLON,
+                // Full names
+                "LITRE"       => VolumeUnitM.LITRE,
+                "LITRES"      => VolumeUnitM.LITRE,
+                "LITER"       => VolumeUnitM.LITRE,
+                "LITERS"      => VolumeUnitM.LITRE,
+                "MILLILITRE"  => VolumeUnitM.MILLILITRE,
+                "MILLILITRES" => VolumeUnitM.MILLILITRE,
+                "MILLILITER"  => VolumeUnitM.MILLILITRE,
+                "MILLILITERS" => VolumeUnitM.MILLILITRE,
+                "GALLON"      => VolumeUnitM.GALLON,
+                "GALLONS"     => VolumeUnitM.GALLON,
+                // Short forms
+                "L"           => VolumeUnitM.LITRE,
+                "LT"          => VolumeUnitM.LITRE,
+                "LTR"         => VolumeUnitM.LITRE,
+                "ML"          => VolumeUnitM.MILLILITRE,
+                "ML."         => VolumeUnitM.MILLILITRE,
+                "GAL"         => VolumeUnitM.GALLON,
+                "GAL."        => VolumeUnitM.GALLON,
                 _ => throw new QuantityMeasurementException(
-                        $"Unknown volume unit: '{name}'. Use LITRE/L, MILLILITRE/ML, GALLON/GAL")
+                        $"Unknown volume unit: '{name}'. Use: litre/l, millilitre/ml, gallon/gal")
             };
+        }
 
         private static TemperatureUnit ResolveTempUnit(string name)
-            => name.ToUpperInvariant() switch
+        {
+            string n = name.Trim().ToUpperInvariant();
+            return n switch
             {
-                "CELSIUS"    or "C"  => TemperatureUnit.CELSIUS,
-                "FAHRENHEIT" or "F"  => TemperatureUnit.FAHRENHEIT,
-                "KELVIN"     or "K"  => TemperatureUnit.KELVIN,
+                // Full names
+                "CELSIUS"    => TemperatureUnit.CELSIUS,
+                "FAHRENHEIT" => TemperatureUnit.FAHRENHEIT,
+                "KELVIN"     => TemperatureUnit.KELVIN,
+                // Short forms
+                "C"          => TemperatureUnit.CELSIUS,
+                "CEL"        => TemperatureUnit.CELSIUS,
+                "F"          => TemperatureUnit.FAHRENHEIT,
+                "FAH"        => TemperatureUnit.FAHRENHEIT,
+                "FAHR"       => TemperatureUnit.FAHRENHEIT,
+                "K"          => TemperatureUnit.KELVIN,
+                "KEL"        => TemperatureUnit.KELVIN,
                 _ => throw new QuantityMeasurementException(
-                        $"Unknown temperature unit: '{name}'. Use CELSIUS/C, FAHRENHEIT/F, KELVIN/K")
+                        $"Unknown temperature unit: '{name}'. Use: celsius/c, fahrenheit/f, kelvin/k")
             };
+        }
 
         // ── Validation helpers ────────────────────────────────────────────
 
+        /// <summary>
+        /// Rejects negative values and values exceeding a practical maximum.
+        /// Max is set to 1,000,000 which covers all real-world measurement use-cases.
+        /// </summary>
         private static void ValidateValue(double value, string label = "Value")
         {
-            if (double.IsNaN(value) || double.IsInfinity(value))
-                throw new QuantityMeasurementException(
-                    $"{label} must be a valid number.");
             if (value < 0)
-                throw new QuantityMeasurementException(
-                    $"{label} cannot be negative. Got: {value}");
+                throw new QuantityMeasurementException($"{label} cannot be negative. Please enter a positive number.");
             if (value > 1_000_000)
-                throw new QuantityMeasurementException(
-                    $"{label} is too large (max 1,000,000). Got: {value}");
+                throw new QuantityMeasurementException($"{label} is too large (max allowed: 1,000,000). Please enter a realistic measurement.");
         }
 
         private static void ValidateNotNull(QuantityDTO? q1, QuantityDTO? q2)
         {
             if (q1 == null)
-                throw new QuantityMeasurementException(
-                    "First operand cannot be null.");
+                throw new QuantityMeasurementException("First operand cannot be null.");
             if (q2 == null)
-                throw new QuantityMeasurementException(
-                    "Second operand cannot be null.");
+                throw new QuantityMeasurementException("Second operand cannot be null.");
         }
 
         private static void ValidateSameCategory(
@@ -432,9 +451,7 @@ namespace QuantityMeasurementBusinessLayer
         {
             if (!string.Equals(q1.Category, q2.Category,
                     StringComparison.OrdinalIgnoreCase))
-                throw new QuantityMeasurementException(
-                    $"Cannot {operation} across different categories: " +
-                    $"{q1.Category} and {q2.Category}.");
+                throw new QuantityMeasurementException($"Cannot {operation} across different categories: " +$"{q1.Category} and {q2.Category}.");
         }
     }
 }

@@ -1,8 +1,7 @@
-using System;
-using QuantityMeasurementModel.Interfaces;
 
-namespace QuantityMeasurementModel.Entities
-{
+using System;
+
+namespace QuantityMeasurementBusinessLayer{
     /// <summary>
     /// UC10: LengthUnit reimplemented as a class-based enum implementing IMeasurable.
     /// Replaces the separate enum + extension methods pattern.

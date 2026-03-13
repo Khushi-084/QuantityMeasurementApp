@@ -1,6 +1,7 @@
 using QuantityMeasurementModel;
 
 namespace QuantityMeasurementBusinessLayer
+
 {
     /// <summary>
     /// UC15: Service interface — defines the contract for all measurement operations.

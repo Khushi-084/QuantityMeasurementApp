@@ -1,6 +1,8 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuantityMeasurementModel.Entities;
+using QuantityMeasurementBusinessLayer;
+using QuantityMeasurementBusinessLayer.Service;
 
 namespace QuantityMeasurementApp.Tests
 {
@@ -119,7 +121,7 @@ namespace QuantityMeasurementApp.Tests
         public void testEquality_VolumeVsLength_Incompatible()
         {
             var volume = new QuantityVolume(1.0, VolumeUnit.LITRE);
-            var length = new QuantityLength(1.0, LengthUnit.FEET);
+            var length = new QuantityLength(1.0, LengthEnum.FEET);
 
             Assert.IsFalse(volume.Equals(length));
         }
@@ -698,12 +700,12 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(feet1, feet2);
 
             // UC3 — Length equality across units (1 foot == 12 inches)
-            var length1 = new QuantityLength(1.0,  LengthUnit.FEET);
-            var length2 = new QuantityLength(12.0, LengthUnit.INCH);
+            var length1 = new QuantityLength(1.0,  LengthEnum.FEET);
+            var length2 = new QuantityLength(12.0, LengthEnum.INCH);
             Assert.IsTrue(length1.Equals(length2));
 
             // UC5 — Static length conversion
-            double converted = QuantityLength.Convert(1.0, LengthUnit.FEET, LengthUnit.INCH);
+            double converted = QuantityLength.Convert(1.0, LengthEnum.FEET, LengthEnum.INCH);
             Assert.AreEqual(12.0, converted, EPSILON);
 
             // UC6 — Length addition
@@ -766,7 +768,7 @@ namespace QuantityMeasurementApp.Tests
         public void testScalability_VolumeIntegration()
         {
             var volume = new QuantityVolume(1.0, VolumeUnit.LITRE);
-            var length = new QuantityLength(1.0, LengthUnit.FEET);
+            var length = new QuantityLength(1.0, LengthEnum.FEET);
             var weight = new QuantityWeight(1.0, WeightUnit.KILOGRAM);
 
             // All three instantiate without errors

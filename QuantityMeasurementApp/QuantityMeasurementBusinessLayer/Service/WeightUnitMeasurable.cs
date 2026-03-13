@@ -1,7 +1,6 @@
 using System;
-using QuantityMeasurementModel.Interfaces;
 
-namespace QuantityMeasurementModel.Entities
+namespace QuantityMeasurementBusinessLayer
 {
     /// <summary>
     /// UC10: WeightUnit reimplemented as a class-based enum implementing IMeasurable.

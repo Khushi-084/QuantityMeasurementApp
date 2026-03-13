@@ -1,16 +1,19 @@
-using QuantityMeasurementModel.Interfaces;
+using System;
+
 namespace QuantityMeasurementModel
 {
     /// <summary>
     /// UC15: Internal model class used within the Service Layer.
     /// Different from QuantityDTO — this is used INSIDE the service,
     /// not for external communication.
-    /// Wraps the existing Quantity<U> concept with IMeasurable units.
+    /// Generic value object wrapping a value and its unit.
+    /// No IMeasurable constraint here — Model layer has no dependency on BusinessLayer.
+    /// The BusinessLayer enforces IMeasurable when constructing QuantityModel instances.
     /// </summary>
-    public class QuantityModel<U> where U : class, IMeasurable
+    public class QuantityModel<U> where U : class
     {
         public double Value { get; }
-        public U Unit       { get; }
+        public U Unit { get; }
 
         public QuantityModel(double value, U unit)
         {
@@ -23,22 +26,7 @@ namespace QuantityMeasurementModel
             Unit  = unit;
         }
 
-        /// <summary>Convert this model's value to base unit.</summary>
-        public double ToBaseUnit() => Unit.ConvertToBaseUnit(Value);
-
-        /// <summary>Convert to a target unit — returns new QuantityModel.</summary>
-        public QuantityModel<U> ConvertTo(U targetUnit)
-        {
-            if (targetUnit == null)
-                throw new ArgumentNullException(nameof(targetUnit));
-
-            double baseValue  = Unit.ConvertToBaseUnit(Value);
-            double converted  = targetUnit.ConvertFromBaseUnit(baseValue);
-            double rounded    = Math.Round(converted, 2, MidpointRounding.AwayFromZero);
-            return new QuantityModel<U>(rounded, targetUnit);
-        }
-
         public override string ToString()
-            => $"QuantityModel({Value}, {Unit.GetUnitName()})";
+            => $"QuantityModel({Value}, {Unit})";
     }
 }

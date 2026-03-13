@@ -1,5 +1,4 @@
-namespace QuantityMeasurementModel.Interfaces
-{
+namespace QuantityMeasurementBusinessLayer{
     /// <summary>
     /// UC10: Common contract for all measurement unit enums.
     /// Enables generic Quantity&lt;U&gt; to work with any measurement category.
@@ -9,7 +8,6 @@ namespace QuantityMeasurementModel.Interfaces
     ///       - ValidateOperationSupport(): default no-op; TemperatureUnit overrides to throw.
     ///       - Existing units (Length, Weight, Volume) require NO changes — defaults apply.
     ///       - Adheres to Interface Segregation Principle: categories opt in to arithmetic.
-    ///       - C# equivalent of Java @FunctionalInterface SupportsArithmetic pattern.
     /// </summary>
     public interface IMeasurable
     {

@@ -1,7 +1,6 @@
 using System;
-using QuantityMeasurementModel.Interfaces;
 
-namespace QuantityMeasurementModel.Entities
+namespace QuantityMeasurementBusinessLayer
 {
     /// <summary>
     /// UC12: VolumeUnit reimplemented as a class-based enum implementing IMeasurable.

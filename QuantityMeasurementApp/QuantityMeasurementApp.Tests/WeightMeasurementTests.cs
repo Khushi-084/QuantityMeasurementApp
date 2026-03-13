@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuantityMeasurementModel.Entities;
+using QuantityMeasurementBusinessLayer.Service;
+
 
 namespace QuantityMeasurementApp.Tests
 {
@@ -90,7 +92,7 @@ namespace QuantityMeasurementApp.Tests
         public void testEquality_WeightVsLength_Incompatible()
         {
             var weight = new QuantityWeight(1.0, WeightUnit.KILOGRAM);
-            var length = new QuantityLength(1.0, LengthUnit.FEET);
+            var length = new QuantityLength(1.0, LengthEnum.FEET);
 
             Assert.IsFalse(weight.Equals(length));
         }
