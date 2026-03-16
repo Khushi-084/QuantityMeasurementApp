@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ADO.NET SQL Server driver — connects to SSMS / SQL Server -->
+    <PackageReference Include="Microsoft.Data.SqlClient"                      Version="5.2.1" />
+    <!-- Reads appsettings.json for connection string -->
+    <PackageReference Include="Microsoft.Extensions.Configuration"            Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json"       Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder"     Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuantityMeasurementModel\QuantityMeasurementModel.csproj" />
+  </ItemGroup>
+
+</Project>
