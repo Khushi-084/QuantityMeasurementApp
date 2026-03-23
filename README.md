@@ -125,4 +125,27 @@ QuantityMeasurementApp is a C# console application for handling length measureme
 - Introduces a SupportsArithmetic functional interface with lambda expressions to indicate whether a unit supports arithmetic operations.
 - Maintains type safety and clear error handling, throwing UnsupportedOperationException when unsupported temperature operations are attempted.
 
+**UC15: Persistence Layer using ADO.NET**
+
+- Introduces database integration using ADO.NET for storing quantity measurement operations.
+- Implements CRUD operations with SQL Server (SSMS) using SqlConnection, SqlCommand, and DataReader.
+- Stores details like input values, units, operation type, result, and error messages.
+- Handles manual connection management and query execution.
+- Enables retrieval of operation history for tracking and debugging.
+
+**UC16: Repository Pattern and Structured Data Access**
+
+- Refactors ADO.NET code using Repository Pattern for better separation of concerns.
+- Creates interfaces and concrete repository classes for database operations.
+- Improves code maintainability, testability, and scalability.
+- Centralizes data access logic, reducing duplication across the application.
+- Prepares the project for future enhancements like caching and service abstraction.
+  
+**UC17: ASP.NET Core Integration with REST APIs**
+
+- Converts the application into an ASP.NET Core Web API for exposing RESTful endpoints.
+- Implements controllers for operations like compare, convert, add, and history retrieval.
+- Adds features like DTOs, model validation, and structured API responses.
+- Integrates authentication basics (JWT), password hashing with salting, and encryption/decryption.
+- Connects API with SQL Server and enables Swagger for API testing and documentation.
   
