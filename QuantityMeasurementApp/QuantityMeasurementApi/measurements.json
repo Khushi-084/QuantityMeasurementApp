@@ -1,0 +1,26 @@
+[
+  {
+    "OperationType": "COMPARE",
+    "MeasurementCategory": "LENGTH",
+    "Timestamp": "2026-03-23T06:57:59.0858659Z",
+    "HasError": false,
+    "Operand1Value": 10,
+    "Operand1Unit": "FEET",
+    "Operand2Value": 10,
+    "Operand2Unit": "FEET",
+    "ResultValue": 1,
+    "ResultUnit": "EQUAL"
+  },
+  {
+    "OperationType": "COMPARE",
+    "MeasurementCategory": "LENGTH",
+    "Timestamp": "2026-03-23T06:58:07.3679174Z",
+    "HasError": false,
+    "Operand1Value": 10,
+    "Operand1Unit": "FEET",
+    "Operand2Value": 10,
+    "Operand2Unit": "FEET",
+    "ResultValue": 1,
+    "ResultUnit": "EQUAL"
+  }
+]
