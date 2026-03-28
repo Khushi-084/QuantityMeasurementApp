@@ -1,0 +1,76 @@
+[
+  {
+    "OperationType": "CONVERT",
+    "MeasurementCategory": "WEIGHT",
+    "Timestamp": "2026-03-16T10:52:33.0460211Z",
+    "HasError": false,
+    "Operand1Value": 45,
+    "Operand1Unit": "KG",
+    "ResultValue": 99.21,
+    "ResultUnit": "POUND"
+  },
+  {
+    "OperationType": "CONVERT",
+    "MeasurementCategory": "WEIGHT",
+    "Timestamp": "2026-03-16T10:52:33.046159Z",
+    "HasError": false,
+    "Operand1Value": 384,
+    "Operand1Unit": "KG",
+    "ResultValue": 846.58,
+    "ResultUnit": "POUND"
+  },
+  {
+    "OperationType": "CONVERT",
+    "MeasurementCategory": "WEIGHT",
+    "Timestamp": "2026-03-16T10:52:33.0461598Z",
+    "HasError": false,
+    "Operand1Value": 234,
+    "Operand1Unit": "KG",
+    "ResultValue": 515.88,
+    "ResultUnit": "POUND"
+  },
+  {
+    "OperationType": "COMPARE",
+    "MeasurementCategory": "LENGTH",
+    "Timestamp": "2026-03-16T10:52:33.0463892Z",
+    "HasError": false,
+    "Operand1Value": 23,
+    "Operand1Unit": "FT",
+    "Operand2Value": 23,
+    "Operand2Unit": "FT",
+    "ResultValue": 1,
+    "ResultUnit": "EQUAL"
+  },
+  {
+    "OperationType": "CONVERT",
+    "MeasurementCategory": "TEMPERATURE",
+    "Timestamp": "2026-03-16T10:52:33.0463913Z",
+    "HasError": false,
+    "Operand1Value": 45,
+    "Operand1Unit": "C",
+    "ResultValue": 113,
+    "ResultUnit": "FAHRENHEIT"
+  },
+  {
+    "OperationType": "ADD",
+    "MeasurementCategory": "VOLUME",
+    "Timestamp": "2026-03-16T10:52:33.0463954Z",
+    "HasError": false,
+    "Operand1Value": 34,
+    "Operand1Unit": "L",
+    "Operand2Value": 56,
+    "Operand2Unit": "ML",
+    "ResultValue": 34.06,
+    "ResultUnit": "LITRE"
+  },
+  {
+    "OperationType": "CONVERT",
+    "MeasurementCategory": "LENGTH",
+    "Timestamp": "2026-03-16T10:52:44.840654Z",
+    "HasError": false,
+    "Operand1Value": 733,
+    "Operand1Unit": "FT",
+    "ResultValue": 8796,
+    "ResultUnit": "INCHES"
+  }
+]
