@@ -144,8 +144,24 @@ QuantityMeasurementApp is a C# console application for handling length measureme
 **UC17: ASP.NET Core Integration with REST APIs**
 
 - Converts the application into an ASP.NET Core Web API for exposing RESTful endpoints.
-- Implements controllers for operations like compare, convert, add, and history retrieval.
-- Adds features like DTOs, model validation, and structured API responses.
-- Integrates authentication basics (JWT), password hashing with salting, and encryption/decryption.
-- Connects API with SQL Server and enables Swagger for API testing and documentation.
+- Implements controllers for operations like:
+- Compare quantities, Convert units, Perform arithmetic operations, Retrieve operation history
+- Uses DTOs (Data Transfer Objects) for structured request and response handling.
+- Adds model validation to ensure correct and safe input data.
+- Provides standardized API responses for consistency.
+- Integrates with SQL Server (SSMS) for persistent storage of operations.
+- Enables Swagger UI for API testing and documentation.
+- Maintains clean architecture using Controller → Service → Repository layers.
   
+**UC18: Authentication, Security, and Caching Enhancements**
+
+- Introduces JWT (JSON Web Token) Authentication for securing API endpoints.
+- Implements Login and Signup functionality with secure credential handling.
+- Applies password hashing with salting to protect user credentials.
+- Adds encryption and decryption mechanisms for sensitive data handling.
+- Configures role-based or token-based authorization for controlled access to APIs.
+- Integrates Redis caching to improve performance and reduce database load.
+- Stores and retrieves frequently accessed data (like operation history) from cache.
+- Ensures secure API communication and protects against common vulnerabilities.
+- Follows industry best practices for:Authentication, Data security, Performance optimization
+- Enhances overall system scalability, reliability, and responsiveness.
