@@ -9,23 +9,16 @@ using QuantityMeasurementRepository.Interface;
 namespace QuantityMeasurementBusinessLayer.Service
 {
     /// <summary>
-    /// UC17: Async Web API service implementation.
-    ///
-    /// Reuses the EXISTING UC16 business logic (QuantityMeasurementServiceImpl)
-    /// internally — wraps its sync methods to produce async QuantityMeasurementDTO results
-    /// and persists via the new EF Core async repository (IQuantityMeasurementApiRepository).
-    ///
-    /// UC17 Data Flow:
-    ///   1. Receive QuantityInputDTO / ConvertRequestDTO from controller
-    ///   2. Extract QuantityDTO operands
-    ///   3. Delegate to existing UC16 service (Compare/Convert/Add/Subtract/Divide)
-    ///   4. Build QuantityMeasurementApiEntity from result
-    ///   5. SaveAsync to EF Core repository (+ Redis cache invalidation)
-    ///   6. Return QuantityMeasurementDTO to controller
+    /// Async Web API service.
+    /// Operations accept an optional userId:
+    ///   - When the caller is logged in, userId is set on the saved entity.
+    ///   - When anonymous (no token), userId is null — record is still saved
+    ///     but will NOT appear in any user's history.
+    /// History methods always require a userId and only return that user's records.
     /// </summary>
     public class QuantityMeasurementApiServiceImpl : IQuantityMeasurementApiService
     {
-        private readonly IQuantityMeasurementService    _uc16Service;
+        private readonly IQuantityMeasurementService       _uc16Service;
         private readonly IQuantityMeasurementApiRepository _repository;
         private readonly ILogger<QuantityMeasurementApiServiceImpl> _logger;
 
@@ -39,23 +32,17 @@ namespace QuantityMeasurementBusinessLayer.Service
             _logger      = logger      ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        // ── COMPARE ───────────────────────────────────────────────────────
-
-        public async Task<QuantityMeasurementDTO> CompareAsync(QuantityInputDTO input)
+        // ── COMPARE ──────────────────────────────────────────────────────
+        public async Task<QuantityMeasurementDTO> CompareAsync(QuantityInputDTO input, int? userId = null)
         {
-            var entity = BuildEntity("COMPARE", input.ThisQuantityDTO, input.ThatQuantityDTO);
+            var entity = BuildEntity("COMPARE", input.ThisQuantityDTO, input.ThatQuantityDTO, userId);
             try
             {
                 var result = _uc16Service.Compare(input.ThisQuantityDTO, input.ThatQuantityDTO);
                 entity.ResultValue    = result.Value;
                 entity.ResultUnit     = result.UnitName;
                 entity.ResultCategory = result.Category;
-
                 await _repository.SaveAsync(entity);
-                _logger.LogInformation("COMPARE: {V1}{U1} vs {V2}{U2} = {R}",
-                    input.ThisQuantityDTO.Value, input.ThisQuantityDTO.UnitName,
-                    input.ThatQuantityDTO.Value, input.ThatQuantityDTO.UnitName,
-                    result.UnitName);
                 return QuantityMeasurementDTO.FromEntity(entity);
             }
             catch (QuantityMeasurementException) { throw; }
@@ -66,23 +53,18 @@ namespace QuantityMeasurementBusinessLayer.Service
             }
         }
 
-        // ── CONVERT ───────────────────────────────────────────────────────
-
-        public async Task<QuantityMeasurementDTO> ConvertAsync(ConvertRequestDTO input)
+        // ── CONVERT ──────────────────────────────────────────────────────
+        public async Task<QuantityMeasurementDTO> ConvertAsync(ConvertRequestDTO input, int? userId = null)
         {
             var targetDto = new QuantityDTO(0, input.TargetUnit, input.ThisQuantityDTO.Category);
-            var entity    = BuildEntity("CONVERT", input.ThisQuantityDTO, null);
+            var entity    = BuildEntity("CONVERT", input.ThisQuantityDTO, null, userId);
             try
             {
                 var result = _uc16Service.Convert(input.ThisQuantityDTO, targetDto);
                 entity.ResultValue    = result.Value;
                 entity.ResultUnit     = result.UnitName;
                 entity.ResultCategory = result.Category;
-
                 await _repository.SaveAsync(entity);
-                _logger.LogInformation("CONVERT: {V}{U} → {R}{RU}",
-                    input.ThisQuantityDTO.Value, input.ThisQuantityDTO.UnitName,
-                    result.Value, result.UnitName);
                 return QuantityMeasurementDTO.FromEntity(entity);
             }
             catch (QuantityMeasurementException) { throw; }
@@ -94,19 +76,16 @@ namespace QuantityMeasurementBusinessLayer.Service
         }
 
         // ── ADD ───────────────────────────────────────────────────────────
-
-        public async Task<QuantityMeasurementDTO> AddAsync(QuantityInputDTO input)
+        public async Task<QuantityMeasurementDTO> AddAsync(QuantityInputDTO input, int? userId = null)
         {
-            var entity = BuildEntity("ADD", input.ThisQuantityDTO, input.ThatQuantityDTO);
+            var entity = BuildEntity("ADD", input.ThisQuantityDTO, input.ThatQuantityDTO, userId);
             try
             {
                 var result = _uc16Service.Add(input.ThisQuantityDTO, input.ThatQuantityDTO);
                 entity.ResultValue    = result.Value;
                 entity.ResultUnit     = result.UnitName;
                 entity.ResultCategory = result.Category;
-
                 await _repository.SaveAsync(entity);
-                _logger.LogInformation("ADD: {R}{U}", result.Value, result.UnitName);
                 return QuantityMeasurementDTO.FromEntity(entity);
             }
             catch (QuantityMeasurementException) { throw; }
@@ -118,19 +97,16 @@ namespace QuantityMeasurementBusinessLayer.Service
         }
 
         // ── SUBTRACT ─────────────────────────────────────────────────────
-
-        public async Task<QuantityMeasurementDTO> SubtractAsync(QuantityInputDTO input)
+        public async Task<QuantityMeasurementDTO> SubtractAsync(QuantityInputDTO input, int? userId = null)
         {
-            var entity = BuildEntity("SUBTRACT", input.ThisQuantityDTO, input.ThatQuantityDTO);
+            var entity = BuildEntity("SUBTRACT", input.ThisQuantityDTO, input.ThatQuantityDTO, userId);
             try
             {
                 var result = _uc16Service.Subtract(input.ThisQuantityDTO, input.ThatQuantityDTO);
                 entity.ResultValue    = result.Value;
                 entity.ResultUnit     = result.UnitName;
                 entity.ResultCategory = result.Category;
-
                 await _repository.SaveAsync(entity);
-                _logger.LogInformation("SUBTRACT: {R}{U}", result.Value, result.UnitName);
                 return QuantityMeasurementDTO.FromEntity(entity);
             }
             catch (QuantityMeasurementException) { throw; }
@@ -142,19 +118,16 @@ namespace QuantityMeasurementBusinessLayer.Service
         }
 
         // ── DIVIDE ────────────────────────────────────────────────────────
-
-        public async Task<QuantityMeasurementDTO> DivideAsync(QuantityInputDTO input)
+        public async Task<QuantityMeasurementDTO> DivideAsync(QuantityInputDTO input, int? userId = null)
         {
-            var entity = BuildEntity("DIVIDE", input.ThisQuantityDTO, input.ThatQuantityDTO);
+            var entity = BuildEntity("DIVIDE", input.ThisQuantityDTO, input.ThatQuantityDTO, userId);
             try
             {
                 var result = _uc16Service.Divide(input.ThisQuantityDTO, input.ThatQuantityDTO);
                 entity.ResultValue    = result.Value;
                 entity.ResultUnit     = result.UnitName;
                 entity.ResultCategory = result.Category;
-
                 await _repository.SaveAsync(entity);
-                _logger.LogInformation("DIVIDE: {R}{U}", result.Value, result.UnitName);
                 return QuantityMeasurementDTO.FromEntity(entity);
             }
             catch (QuantityMeasurementException) { throw; }
@@ -165,36 +138,41 @@ namespace QuantityMeasurementBusinessLayer.Service
             }
         }
 
-        // ── HISTORY / COUNT ───────────────────────────────────────────────
+        // ── HISTORY ───────────────────────────────────────────────────────
+        public async Task<IReadOnlyList<QuantityMeasurementDTO>> GetAllHistoryAsync(int userId)
+        {
+            var list = await _repository.GetAllByUserAsync(userId);
+            return QuantityMeasurementDTO.FromEntityList(list);
+        }
 
         public async Task<IReadOnlyList<QuantityMeasurementDTO>> GetHistoryByOperationAsync(
-            string operationType)
+            string operationType, int userId)
         {
-            var list = await _repository.GetByOperationTypeAsync(operationType.ToUpperInvariant());
+            var list = await _repository.GetByOperationTypeAsync(operationType.ToUpperInvariant(), userId);
             return QuantityMeasurementDTO.FromEntityList(list);
         }
 
         public async Task<IReadOnlyList<QuantityMeasurementDTO>> GetHistoryByCategoryAsync(
-            string category)
+            string category, int userId)
         {
-            var list = await _repository.GetByCategoryAsync(category.ToUpperInvariant());
+            var list = await _repository.GetByCategoryAsync(category.ToUpperInvariant(), userId);
             return QuantityMeasurementDTO.FromEntityList(list);
         }
 
-        public async Task<IReadOnlyList<QuantityMeasurementDTO>> GetErrorHistoryAsync()
+        public async Task<IReadOnlyList<QuantityMeasurementDTO>> GetErrorHistoryAsync(int userId)
         {
-            var list = await _repository.GetErrorsAsync();
+            var list = await _repository.GetErrorsAsync(userId);
             return QuantityMeasurementDTO.FromEntityList(list);
         }
 
-        public async Task<int> GetOperationCountAsync(string operationType)
-            => await _repository.GetCountByOperationAsync(operationType.ToUpperInvariant());
+        public async Task<int> GetOperationCountAsync(string operationType, int userId)
+            => await _repository.GetCountByOperationAsync(operationType.ToUpperInvariant(), userId);
 
         // ── PRIVATE ───────────────────────────────────────────────────────
-
         private static QuantityMeasurementApiEntity BuildEntity(
-            string opType, QuantityDTO q1, QuantityDTO? q2) => new()
+            string opType, QuantityDTO q1, QuantityDTO? q2, int? userId) => new()
         {
+            UserId              = userId,
             OperationType       = opType,
             MeasurementCategory = q1.Category,
             Operand1Value       = q1.Value,
@@ -205,7 +183,8 @@ namespace QuantityMeasurementBusinessLayer.Service
 
         private async Task SaveErrorAsync(QuantityMeasurementApiEntity entity, string msg)
         {
-            entity.HasError = true; entity.ErrorMessage = msg;
+            entity.HasError     = true;
+            entity.ErrorMessage = msg;
             try { await _repository.SaveAsync(entity); }
             catch (System.Exception ex) { _logger.LogError(ex, "Failed to save error entity."); }
         }

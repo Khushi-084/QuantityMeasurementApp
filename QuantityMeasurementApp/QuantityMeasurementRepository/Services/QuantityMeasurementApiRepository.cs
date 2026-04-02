@@ -9,19 +9,17 @@ using System.Text.Json;
 namespace QuantityMeasurementRepository.Services
 {
     /// <summary>
-    /// UC17: EF Core + Redis implementation of IQuantityMeasurementApiRepository.
-    /// Read: Redis cache-first → SQL Server fallback.
-    /// Write: SQL Server → invalidate Redis cache.
-    /// UC16's ADO.NET QuantityMeasurementDatabaseRepository is preserved unchanged.
+    /// EF Core + optional Redis implementation.
+    /// All query methods now filter by UserId so each user sees only their own records.
+    /// Save stores UserId on the entity (null for anonymous operations).
+    /// Redis cache key includes userId for per-user isolation.
     /// </summary>
     public class QuantityMeasurementApiRepository : IQuantityMeasurementApiRepository
     {
-        private readonly QuantityMeasurementDbContext                _context;
-        private readonly ILogger<QuantityMeasurementApiRepository>   _logger;
-        private readonly IDatabase?                                   _redis;
-
-        private const string AllCacheKey  = "qm:all";
-        private const int    CacheTtlSecs = 300;
+        private readonly QuantityMeasurementDbContext               _context;
+        private readonly ILogger<QuantityMeasurementApiRepository>  _logger;
+        private readonly IDatabase?                                  _redis;
+        private const int CacheTtlSecs = 300;
 
         public QuantityMeasurementApiRepository(
             QuantityMeasurementDbContext context,
@@ -33,75 +31,98 @@ namespace QuantityMeasurementRepository.Services
             _redis   = redis?.GetDatabase();
         }
 
+        // ── Write ─────────────────────────────────────────────────────────
         public async Task SaveAsync(QuantityMeasurementApiEntity entity)
         {
             _context.QuantityMeasurements.Add(entity);
             await _context.SaveChangesAsync();
-            await InvalidateCacheAsync();
-            _logger.LogDebug("Saved {Op} entity id={Id}", entity.OperationType, entity.Id);
+            // Invalidate this user's cache (or global if anonymous)
+            await InvalidateCacheAsync(entity.UserId);
+            _logger.LogDebug("Saved {Op} entity id={Id} userId={Uid}",
+                entity.OperationType, entity.Id, entity.UserId?.ToString() ?? "anon");
         }
 
-        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetAllAsync()
+        // ── Per-user reads ────────────────────────────────────────────────
+        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetAllByUserAsync(int userId)
         {
+            var cacheKey = UserCacheKey(userId);
             if (_redis is not null)
             {
                 try
                 {
-                    var cached = await _redis.StringGetAsync(AllCacheKey);
+                    var cached = await _redis.StringGetAsync(cacheKey);
                     if (cached.HasValue)
                     {
                         var list = JsonSerializer.Deserialize<List<QuantityMeasurementApiEntity>>((string)cached!);
-                        if (list is not null) { _logger.LogDebug("Cache HIT: qm:all"); return list; }
+                        if (list is not null) { _logger.LogDebug("Cache HIT: {Key}", cacheKey); return list; }
                     }
                 }
                 catch (Exception ex) { _logger.LogWarning(ex, "Redis read failed."); }
             }
 
             var entities = await _context.QuantityMeasurements
-                .AsNoTracking().OrderByDescending(e => e.CreatedAt).ToListAsync();
+                .AsNoTracking()
+                .Where(e => e.UserId == userId)
+                .OrderByDescending(e => e.CreatedAt)
+                .ToListAsync();
 
             if (_redis is not null)
             {
                 try
                 {
-                    await _redis.StringSetAsync(AllCacheKey,
-                        JsonSerializer.Serialize(entities), TimeSpan.FromSeconds(CacheTtlSecs));
+                    await _redis.StringSetAsync(cacheKey,
+                        JsonSerializer.Serialize(entities),
+                        TimeSpan.FromSeconds(CacheTtlSecs));
                 }
                 catch (Exception ex) { _logger.LogWarning(ex, "Redis write failed."); }
             }
+
             return entities;
         }
 
-        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetByOperationTypeAsync(string op)
+        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetByOperationTypeAsync(
+            string op, int userId)
             => await _context.QuantityMeasurements.AsNoTracking()
-                .Where(e => e.OperationType == op.ToUpperInvariant())
-                .OrderByDescending(e => e.CreatedAt).ToListAsync();
+                .Where(e => e.UserId == userId && e.OperationType == op.ToUpperInvariant())
+                .OrderByDescending(e => e.CreatedAt)
+                .ToListAsync();
 
-        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetByCategoryAsync(string category)
+        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetByCategoryAsync(
+            string category, int userId)
             => await _context.QuantityMeasurements.AsNoTracking()
-                .Where(e => e.MeasurementCategory == category.ToUpperInvariant())
-                .OrderByDescending(e => e.CreatedAt).ToListAsync();
+                .Where(e => e.UserId == userId && e.MeasurementCategory == category.ToUpperInvariant())
+                .OrderByDescending(e => e.CreatedAt)
+                .ToListAsync();
 
-        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetErrorsAsync()
+        public async Task<IReadOnlyList<QuantityMeasurementApiEntity>> GetErrorsAsync(int userId)
             => await _context.QuantityMeasurements.AsNoTracking()
-                .Where(e => e.HasError).OrderByDescending(e => e.CreatedAt).ToListAsync();
+                .Where(e => e.UserId == userId && e.HasError)
+                .OrderByDescending(e => e.CreatedAt)
+                .ToListAsync();
 
-        public async Task<int> GetCountByOperationAsync(string op)
+        public async Task<int> GetCountByOperationAsync(string op, int userId)
             => await _context.QuantityMeasurements
-                .CountAsync(e => e.OperationType == op.ToUpperInvariant() && !e.HasError);
+                .CountAsync(e => e.UserId == userId
+                              && e.OperationType == op.ToUpperInvariant()
+                              && !e.HasError);
 
-        public async Task<int> GetTotalCountAsync()
-            => await _context.QuantityMeasurements.CountAsync();
+        public async Task<int> GetTotalCountAsync(int userId)
+            => await _context.QuantityMeasurements
+                .CountAsync(e => e.UserId == userId);
 
-        private async Task InvalidateCacheAsync()
+        // ── Cache helpers ─────────────────────────────────────────────────
+        private static string UserCacheKey(int? userId)
+            => userId.HasValue ? $"qm:user:{userId}" : "qm:anon";
+
+        private async Task InvalidateCacheAsync(int? userId)
         {
             if (_redis is null) return;
-            try { await _redis.KeyDeleteAsync(AllCacheKey); }
+            try { await _redis.KeyDeleteAsync(UserCacheKey(userId)); }
             catch (Exception ex) { _logger.LogWarning(ex, "Redis invalidation failed."); }
         }
     }
 
-    /// <summary>UC17: EF Core implementation of IUserRepository.</summary>
+    /// <summary>EF Core implementation of IUserRepository — unchanged.</summary>
     public class UserRepository : IUserRepository
     {
         private readonly QuantityMeasurementDbContext _context;
@@ -128,7 +149,7 @@ namespace QuantityMeasurementRepository.Services
 
         public async Task<UserEntity> CreateAsync(UserEntity user)
         {
-            user.Email = user.Email.ToLowerInvariant();
+            user.Email     = user.Email.ToLowerInvariant();
             user.CreatedAt = DateTime.UtcNow;
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
@@ -139,7 +160,11 @@ namespace QuantityMeasurementRepository.Services
         public async Task UpdateLastLoginAsync(int userId)
         {
             var user = await _context.Users.FindAsync(userId);
-            if (user is not null) { user.LastLoginAt = DateTime.UtcNow; await _context.SaveChangesAsync(); }
+            if (user is not null)
+            {
+                user.LastLoginAt = DateTime.UtcNow;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

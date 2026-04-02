@@ -30,7 +30,7 @@ builder.Services.AddControllers()
     });
 
 // ════════════════════════════════════════════════════════════════════════════
-// 2. DATABASE — EF Core (SQL Server if configured, else In-Memory)
+// 2. DATABASE — EF Core + SQL Server (used for ALL repositories now)
 // ════════════════════════════════════════════════════════════════════════════
 var connectionString = config.GetConnectionString("DefaultConnection");
 
@@ -51,25 +51,25 @@ else
 }
 
 // ════════════════════════════════════════════════════════════════════════════
-// 3. REDIS (optional — skipped if not configured)
+// 3. REDIS
 // ════════════════════════════════════════════════════════════════════════════
 var redisConn = config.GetConnectionString("Redis");
+
 if (!string.IsNullOrWhiteSpace(redisConn))
 {
-    try
-    {
-        builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
-            ConnectionMultiplexer.Connect(redisConn));
-    }
-    catch { /* Redis is optional — continue without it */ }
+    builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
+        ConnectionMultiplexer.Connect(redisConn));
 }
 
 // ════════════════════════════════════════════════════════════════════════════
-// 4. REPOSITORIES
+// 4. REPOSITORY — all using EF Core now, ADO.NET removed
 // ════════════════════════════════════════════════════════════════════════════
 builder.Services.AddScoped<IQuantityMeasurementApiRepository, QuantityMeasurementApiRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IQuantityMeasurementRepository, QuantityMeasurementDatabaseRepository>();
+
+// ✅ Now uses EF Core DbContext — ADO.NET ConnectionPool/DatabaseConfig removed
+builder.Services.AddScoped<IQuantityMeasurementRepository,
+    QuantityMeasurementDatabaseRepository>();
 
 // ════════════════════════════════════════════════════════════════════════════
 // 5. BUSINESS LAYER
@@ -77,6 +77,7 @@ builder.Services.AddScoped<IQuantityMeasurementRepository, QuantityMeasurementDa
 builder.Services.AddScoped<IQuantityMeasurementService, QuantityMeasurementServiceImpl>();
 builder.Services.AddScoped<IQuantityMeasurementApiService, QuantityMeasurementApiServiceImpl>();
 builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.AddSingleton<IJwtService, JwtService>();
 builder.Services.AddSingleton<IEncryptionService, EncryptionService>();
 
@@ -110,22 +111,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // ════════════════════════════════════════════════════════════════════════════
-// 7. CORS — wide open for local development on any port
-// ════════════════════════════════════════════════════════════════════════════
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("FrontendPolicy", policy =>
-    {
-        policy
-            .SetIsOriginAllowed(_ => true)   // Allow any origin for local dev
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials();
-    });
-});
-
-// ════════════════════════════════════════════════════════════════════════════
-// 8. SWAGGER
+// 7. SWAGGER
 // ════════════════════════════════════════════════════════════════════════════
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -135,6 +121,7 @@ builder.Services.AddSwaggerGen(options =>
         Title   = "Quantity Measurement API",
         Version = "v1"
     });
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name         = "Authorization",
@@ -144,12 +131,17 @@ builder.Services.AddSwaggerGen(options =>
         In           = ParameterLocation.Header,
         Description  = "Enter JWT Token"
     });
+
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id   = "Bearer"
+                }
             },
             new string[] {}
         }
@@ -161,27 +153,22 @@ builder.Services.AddSwaggerGen(options =>
 // ════════════════════════════════════════════════════════════════════════════
 var app = builder.Build();
 
-// Apply migrations / ensure DB created
+// Apply migrations
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<QuantityMeasurementDbContext>();
-    try
-    {
-        if (db.Database.IsRelational())
-            db.Database.Migrate();
-        else
-            db.Database.EnsureCreated();
-    }
-    catch (Exception ex)
-    {
-        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-        logger.LogWarning(ex, "Database migration/creation failed — continuing with in-memory fallback.");
-    }
+
+    if (db.Database.IsRelational())
+        db.Database.Migrate();
+    else
+        db.Database.EnsureCreated();
 }
 
 // ════════════════════════════════════════════════════════════════════════════
 // MIDDLEWARE PIPELINE
 // ════════════════════════════════════════════════════════════════════════════
+
+// ✅ FIRST — catches all unhandled exceptions
 app.UseGlobalExceptionHandling();
 
 app.UseSwagger();
@@ -191,10 +178,11 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-// IMPORTANT: CORS must come FIRST
-app.UseCors("FrontendPolicy");
+app.UseHttpsRedirection();
 
+// ✅ JWT extraction — populates HttpContext.User from Bearer token
 app.UseMiddleware<JwtMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

@@ -6,71 +6,16 @@
     <members>
         <member name="T:QuantityMeasurementApi.Controller.QuantityMeasurementController">
              <summary>
-             UC17: REST controller for all quantity measurement operations.
-             All endpoints require a valid JWT Bearer token.
-             Base URL: /api/v1/quantities
+             PUBLIC operations (compare / convert / add / subtract / divide):
+               - No JWT required — anyone can call them.
+               - If a valid JWT is present, the userId is extracted and stored on the record
+                 so the operation appears in that user's history.
+               - If no JWT, userId = null — record is saved but never shown in anyone's history.
             
-             POST /compare                          → Compare two quantities
-             POST /convert                          → Convert to different unit
-             POST /add                              → Add two quantities
-             POST /subtract                         → Subtract quantities
-             POST /divide                           → Divide (returns SCALAR ratio)
-             GET  /history/operation/{opType}       → Records by operation type
-             GET  /history/category/{category}      → Records by measurement category
-             GET  /history/errors                   → Error audit trail
-             GET  /count/{opType}                   → Successful operation count
+             PROTECTED history endpoints:
+               - [Authorize] — must have a valid JWT.
+               - Only return records belonging to the authenticated user.
              </summary>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.Compare(QuantityMeasurementModel.Dto.QuantityInputDTO)">
-             <summary>Compare two quantities for equality.</summary>
-             <remarks>
-             Both quantities normalised to base unit before comparison.
-             ResultValue=1 (EQUAL) or 0 (NOT_EQUAL).
-            
-                 POST /api/v1/quantities/compare
-                 {
-                   "thisQuantityDTO": { "value": 1.0,  "unitName": "FEET",   "category": "LENGTH" },
-                   "thatQuantityDTO": { "value": 12.0, "unitName": "INCHES", "category": "LENGTH" }
-                 }
-             </remarks>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.Convert(QuantityMeasurementModel.Dto.ConvertRequestDTO)">
-            <summary>Convert a quantity to a different unit within the same category.</summary>
-            <remarks>
-                POST /api/v1/quantities/convert
-                {
-                  "thisQuantityDTO": { "value": 1.0, "unitName": "FEET", "category": "LENGTH" },
-                  "targetUnit": "INCHES"
-                }
-            </remarks>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.Add(QuantityMeasurementModel.Dto.QuantityInputDTO)">
-            <summary>Add two quantities. Result expressed in first operand's unit.</summary>
-            <remarks>
-                POST /api/v1/quantities/add
-                {
-                  "thisQuantityDTO": { "value": 1.0,  "unitName": "FEET",   "category": "LENGTH" },
-                  "thatQuantityDTO": { "value": 12.0, "unitName": "INCHES", "category": "LENGTH" }
-                }
-            </remarks>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.Subtract(QuantityMeasurementModel.Dto.QuantityInputDTO)">
-            <summary>Subtract second quantity from first. Result in first operand's unit.</summary>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.Divide(QuantityMeasurementModel.Dto.QuantityInputDTO)">
-            <summary>Divide first by second. Returns a dimensionless ratio (SCALAR).</summary>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.GetHistoryByOperation(System.String)">
-            <summary>Get all records for a given operation type (COMPARE/CONVERT/ADD/SUBTRACT/DIVIDE).</summary>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.GetHistoryByCategory(System.String)">
-            <summary>Get all records for a given measurement category (LENGTH/WEIGHT/VOLUME/TEMPERATURE).</summary>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.GetErrorHistory">
-            <summary>Get all records that resulted in errors (audit trail).</summary>
-        </member>
-        <member name="M:QuantityMeasurementApi.Controller.QuantityMeasurementController.GetOperationCount(System.String)">
-            <summary>Get successful operation count for a given operation type.</summary>
         </member>
         <member name="T:QuantityMeasurementApi.Controller.UserController">
             <summary>

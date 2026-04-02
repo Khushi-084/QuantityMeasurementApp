@@ -3,11 +3,6 @@ using QuantityMeasurementModel.Entities;
 
 namespace QuantityMeasurementRepository.Database
 {
-    /// <summary>
-    /// UC17: EF Core DbContext — replaces UC16's raw ADO.NET connection pool.
-    /// Manages QuantityMeasurements and Users tables.
-    /// UC16's ADO.NET QuantityMeasurementDatabaseRepository is preserved unchanged.
-    /// </summary>
     public class QuantityMeasurementDbContext : DbContext
     {
         public QuantityMeasurementDbContext(DbContextOptions<QuantityMeasurementDbContext> options)
@@ -27,8 +22,12 @@ namespace QuantityMeasurementRepository.Database
                 e.HasIndex(x => x.OperationType).HasDatabaseName("IX_QM_OperationType");
                 e.HasIndex(x => x.MeasurementCategory).HasDatabaseName("IX_QM_Category");
                 e.HasIndex(x => x.CreatedAt).HasDatabaseName("IX_QM_CreatedAt");
+                // Index on UserId for fast per-user queries
+                e.HasIndex(x => x.UserId).HasDatabaseName("IX_QM_UserId");
                 e.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
                 e.Property(x => x.HasError).HasDefaultValue(false);
+                // UserId is nullable — anonymous ops have no user
+                e.Property(x => x.UserId).IsRequired(false);
             });
 
             modelBuilder.Entity<UserEntity>(e =>
