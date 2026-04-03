@@ -64,6 +64,16 @@ namespace QuantityMeasurementApi.Controller
             _logger.LogInformation("Login: {Email}", request.Email);
             return Ok(ApiResponse<AuthResponseDTO>.Ok(result, "Login successful."));
         }
+        [HttpPost("google-login")]
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(ApiResponse<AuthResponseDTO>), 200)]
+        [ProducesResponseType(typeof(ErrorResponseDTO), 401)]
+        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginRequestDTO request)
+        {
+            var result = await _userService.GoogleLoginAsync(request.IdToken);
+            _logger.LogInformation("Google Login: success");
+            return Ok(ApiResponse<AuthResponseDTO>.Ok(result, "Google login successful."));
+        }
 
         /// <summary>Get the authenticated user's profile.</summary>
         [HttpGet("profile")]

@@ -1,170 +1,353 @@
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\appsettings.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.staticwebassets.endpoints.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.exe
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.deps.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.runtimeconfig.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.pdb
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.xml
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Azure.Core.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Azure.Identity.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\BCrypt.Net-Next.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Humanizer.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Build.Locator.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Identity.Client.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Mono.TextTemplating.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\StackExchange.Redis.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.ClientModel.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.CodeDom.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.AttributedModel.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Convention.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Hosting.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Runtime.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.TypedParts.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Memory.Data.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Runtime.Caching.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementBusinessLayer.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementModel.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementRepository.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementBusinessLayer.pdb
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementModel.pdb
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementRepository.pdb
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.csproj.AssemblyReference.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.AssemblyInfoInputs.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.AssemblyInfo.cs
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.csproj.CoreCompileInputs.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\rjimswa.dswa.cache.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\scopedcss\bundle\QuantityMeasurementApi.styles.css
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.json.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.development.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\Quantity.B7A08E33.Up2Date
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\refint\QuantityMeasurementApi.dll
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.xml
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.pdb
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.genruntimeconfig.cache
-C:\Users\khush\Pictures\Screenshots\QuantityMeasurementApp_Modified\QuantityMeasurementApi\obj\Debug\net10.0\ref\QuantityMeasurementApi.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\appsettings.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.staticwebassets.endpoints.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.exe
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.deps.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.runtimeconfig.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.pdb
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.xml
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Azure.Core.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Azure.Identity.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\BCrypt.Net-Next.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Google.Apis.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Google.Apis.Auth.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Google.Apis.Core.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Humanizer.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Build.Locator.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Mono.TextTemplating.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\StackExchange.Redis.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.ClientModel.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.CodeDom.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Convention.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Hosting.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Runtime.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Management.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Memory.Data.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Runtime.Caching.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementBusinessLayer.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementModel.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementRepository.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementBusinessLayer.pdb
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementModel.pdb
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementRepository.pdb
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.csproj.AssemblyReference.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.AssemblyInfoInputs.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.AssemblyInfo.cs
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.csproj.CoreCompileInputs.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\scopedcss\bundle\QuantityMeasurementApi.styles.css
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\Quantity.B7A08E33.Up2Date
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\refint\QuantityMeasurementApi.dll
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.xml
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.pdb
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.genruntimeconfig.cache
+C:\Users\khush\Downloads\Telegram Desktop\Backend\QuantityMeasurementApi\obj\Debug\net10.0\ref\QuantityMeasurementApi.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\appsettings.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.staticwebassets.endpoints.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.exe
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.deps.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.runtimeconfig.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.pdb
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementApi.xml
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Azure.Core.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Azure.Identity.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\BCrypt.Net-Next.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Google.Apis.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Google.Apis.Auth.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Google.Apis.Core.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Humanizer.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Build.Locator.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\StackExchange.Redis.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.ClientModel.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.CodeDom.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Management.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Memory.Data.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Runtime.Caching.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementBusinessLayer.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementModel.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementRepository.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementBusinessLayer.pdb
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementModel.pdb
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\QuantityMeasurementRepository.pdb
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.csproj.AssemblyReference.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.AssemblyInfoInputs.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.AssemblyInfo.cs
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.csproj.CoreCompileInputs.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.MvcApplicationPartsAssemblyInfo.cs
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.MvcApplicationPartsAssemblyInfo.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.sourcelink.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\scopedcss\bundle\QuantityMeasurementApi.styles.css
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.development.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\swae.build.ex.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\Quantity.B7A08E33.Up2Date
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\refint\QuantityMeasurementApi.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.xml
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.pdb
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.genruntimeconfig.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\ref\QuantityMeasurementApi.dll

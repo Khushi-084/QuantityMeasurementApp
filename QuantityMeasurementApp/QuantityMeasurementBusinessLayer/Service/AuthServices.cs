@@ -1,4 +1,5 @@
 using BCrypt.Net;
+using Google.Apis.Auth;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -62,7 +63,7 @@ namespace QuantityMeasurementBusinessLayer.Service
         {
             try
             {
-                var handler = new JwtSecurityTokenHandler();
+                var handler    = new JwtSecurityTokenHandler();
                 var parameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
@@ -92,16 +93,22 @@ namespace QuantityMeasurementBusinessLayer.Service
     /// </summary>
     public class UserService : IUserService
     {
-        private readonly IUserRepository     _userRepo;
-        private readonly IJwtService         _jwtService;
+        private readonly IUserRepository      _userRepo;
+        private readonly IJwtService          _jwtService;
         private readonly ILogger<UserService> _logger;
+        private readonly IConfiguration       _config;      // ← ADDED
         private const int WorkFactor = 12;
 
-        public UserService(IUserRepository userRepo, IJwtService jwtService, ILogger<UserService> logger)
+        public UserService(
+            IUserRepository      userRepo,
+            IJwtService          jwtService,
+            ILogger<UserService> logger,
+            IConfiguration       config)          // ← ADDED
         {
             _userRepo   = userRepo;
             _jwtService = jwtService;
             _logger     = logger;
+            _config     = config;                 // ← ADDED
         }
 
         public async Task<AuthResponseDTO> SignupAsync(SignupRequestDTO request)
@@ -165,8 +172,73 @@ namespace QuantityMeasurementBusinessLayer.Service
                        ?? throw new NotFoundException($"User {userId} not found.");
             return new UserResponseDTO
             {
-                Id = user.Id, Username = user.Username,
-                Email = user.Email, Role = user.Role, CreatedAt = user.CreatedAt
+                Id        = user.Id,
+                Username  = user.Username,
+                Email     = user.Email,
+                Role      = user.Role,
+                CreatedAt = user.CreatedAt
+            };
+        }
+
+        public async Task<AuthResponseDTO> GoogleLoginAsync(string idToken)
+        {
+            // 1. Verify the Google ID Token
+            GoogleJsonWebSignature.Payload payload;
+            try
+            {
+                var settings = new GoogleJsonWebSignature.ValidationSettings
+                {
+                    Audience = new[] { _config["Google:ClientId"] }
+                };
+                payload = await GoogleJsonWebSignature.ValidateAsync(idToken, settings);
+            }
+            catch (InvalidJwtException)
+            {
+                throw new AuthException("Invalid Google token.", 401);
+            }
+
+            // 2. Find or create user
+            var email = payload.Email.ToLowerInvariant();
+            var user  = await _userRepo.GetByEmailAsync(email);
+
+            if (user == null)
+            {
+                // Auto-register new Google users
+                var username = payload.Name?.Replace(" ", "_").ToLower()
+                               ?? email.Split('@')[0];
+
+                // Ensure username is unique
+                var baseUsername = username;
+                int suffix = 1;
+                while (await _userRepo.ExistsByUsernameAsync(username))
+                    username = $"{baseUsername}_{suffix++}";
+
+                user = new UserEntity
+                {
+                    Username     = username,
+                    Email        = email,
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(Guid.NewGuid().ToString(), WorkFactor),
+                    Role         = "User",
+                    IsActive     = true
+                };
+                user = await _userRepo.CreateAsync(user);
+                _logger.LogInformation("Google signup: {Email}", email);
+            }
+            else if (!user.IsActive)
+            {
+                throw new AuthException("Account is disabled.", 403);
+            }
+
+            await _userRepo.UpdateLastLoginAsync(user.Id);
+            _logger.LogInformation("Google login: {Email}", email);
+
+            return new AuthResponseDTO
+            {
+                Token     = _jwtService.GenerateToken(user.Id, user.Email, user.Username, user.Role),
+                Username  = user.Username,
+                Email     = user.Email,
+                Role      = user.Role,
+                ExpiresAt = DateTime.UtcNow.AddHours(24)
             };
         }
     }

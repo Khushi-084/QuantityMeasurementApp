@@ -22,7 +22,6 @@ namespace QuantityMeasurementRepository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            // ── QuantityMeasurementApiEntity ──────────────────────────────
             modelBuilder.Entity("QuantityMeasurementModel.Entities.QuantityMeasurementApiEntity", b =>
             {
                 b.Property<int>("Id")
@@ -78,6 +77,11 @@ namespace QuantityMeasurementRepository.Migrations
                     .HasMaxLength(50)
                     .HasColumnType("nvarchar(50)");
 
+                // FIX: UserId was missing from snapshot — added here
+                b.Property<int?>("UserId")
+                    .IsRequired(false)
+                    .HasColumnType("int");
+
                 b.HasKey("Id");
 
                 b.HasIndex("CreatedAt")
@@ -89,10 +93,12 @@ namespace QuantityMeasurementRepository.Migrations
                 b.HasIndex("OperationType")
                     .HasDatabaseName("IX_QM_OperationType");
 
+                b.HasIndex("UserId")
+                    .HasDatabaseName("IX_QM_UserId");
+
                 b.ToTable("QuantityMeasurements");
             });
 
-            // ── UserEntity ────────────────────────────────────────────────
             modelBuilder.Entity("QuantityMeasurementModel.Entities.UserEntity", b =>
             {
                 b.Property<int>("Id")

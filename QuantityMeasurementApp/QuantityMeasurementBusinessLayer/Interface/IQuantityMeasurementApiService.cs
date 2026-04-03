@@ -19,12 +19,13 @@ namespace QuantityMeasurementBusinessLayer.Interface
         Task<int> GetOperationCountAsync(string operationType, int userId);
     }
 
-    public interface IUserService
-    {
-        Task<AuthResponseDTO> SignupAsync(SignupRequestDTO request);
-        Task<AuthResponseDTO> LoginAsync(LoginRequestDTO request);
-        Task<UserResponseDTO> GetProfileAsync(int userId);
-    }
+   public interface IUserService
+{
+    Task<AuthResponseDTO> SignupAsync(SignupRequestDTO request);
+    Task<AuthResponseDTO> LoginAsync(LoginRequestDTO request);
+    Task<UserResponseDTO> GetProfileAsync(int userId);
+    Task<AuthResponseDTO> GoogleLoginAsync(string idToken);  // ← add this line
+}
 
     public interface IJwtService
     {
