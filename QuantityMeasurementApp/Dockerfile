@@ -1,7 +1,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
+
+# Copy everything
 COPY . .
-RUN dotnet publish QuantityMeasurementApi/QuantityMeasurementApi.csproj -c Release -o /app/out
+
+# Restore
+RUN dotnet restore QuantityMeasurementApi/QuantityMeasurementApi.csproj
+
+# Publish
+RUN dotnet publish QuantityMeasurementApi/QuantityMeasurementApi.csproj -c Release -o /app/out --no-restore
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
