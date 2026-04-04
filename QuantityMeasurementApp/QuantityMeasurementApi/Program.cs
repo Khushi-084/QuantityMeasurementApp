@@ -12,6 +12,7 @@ using QuantityMeasurementRepository.Interface;
 using QuantityMeasurementRepository.Services;
 using StackExchange.Redis;
 using System.Text;
+using Npgsql.EntityFrameworkCore.PostgreSQL; 
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -36,13 +37,13 @@ var connectionString = config.GetConnectionString("DefaultConnection");
 
 if (!string.IsNullOrWhiteSpace(connectionString))
 {
-    builder.Services.AddDbContext<QuantityMeasurementDbContext>(opts =>
-        opts.UseSqlServer(connectionString, sql =>
-        {
-            sql.CommandTimeout(30);
-            sql.EnableRetryOnFailure(3);
-            sql.MigrationsAssembly("QuantityMeasurementRepository");
-        }));
+   builder.Services.AddDbContext<QuantityMeasurementDbContext>(opts =>
+    opts.UseNpgsql(connectionString, npgsql =>
+    {
+        npgsql.CommandTimeout(30);
+        npgsql.EnableRetryOnFailure(3);
+        npgsql.MigrationsAssembly("QuantityMeasurementRepository");
+    }));
 }
 else
 {

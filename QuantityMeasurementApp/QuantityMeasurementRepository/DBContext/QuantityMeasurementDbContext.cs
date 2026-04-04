@@ -34,8 +34,7 @@ namespace QuantityMeasurementRepository.Database
                 // Fix: only use SQL defaults for real relational DBs; InMemory uses the C# defaults.
                 if (isRelational)
                 {
-                    e.Property(x => x.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
-                    e.Property(x => x.HasError).HasDefaultValue(false);
+                    e.Property(x => x.CreatedAt).HasDefaultValueSql("NOW()");e.Property(x => x.HasError).HasDefaultValue(false);
                 }
             });
 

@@ -351,3 +351,5 @@ D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debu
 D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.pdb
 D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\QuantityMeasurementApi.genruntimeconfig.cache
 D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\obj\Debug\net10.0\ref\QuantityMeasurementApi.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Npgsql.dll
+D:\QuantityMeasurementApp\QuantityMeasurementApp\QuantityMeasurementApi\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
