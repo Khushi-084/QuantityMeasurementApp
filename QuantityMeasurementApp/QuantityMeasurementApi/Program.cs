@@ -114,16 +114,17 @@ builder.Services.AddAuthorization();
 // 7. CORS
 // Reads allowed origins from environment variable ALLOWED_ORIGINS
 // (comma-separated). Falls back to the Render frontend URL.
-// For local dev, localhost:4200 is always included.
+// For local dev, localhost:4200 and localhost:3000 are always included.
 // ════════════════════════════════════════════════════════════════════════════
 var allowedOriginsEnv = config["ALLOWED_ORIGINS"] ?? "";
 var allowedOrigins = allowedOriginsEnv
     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
     .ToList();
 
-// Always include the deployed frontend and local dev
+// Always include the deployed frontend and local dev ports
 allowedOrigins.Add("https://measure-mate-frontend.onrender.com");
 allowedOrigins.Add("http://localhost:4200");
+allowedOrigins.Add("http://localhost:3000");
 
 builder.Services.AddCors(options =>
 {
@@ -196,6 +197,18 @@ using (var scope = app.Services.CreateScope())
 // ════════════════════════════════════════════════════════════════════════════
 app.UseGlobalExceptionHandling();
 
+// ── COOP Header ─────────────────────────────────────────────────────────────
+// Required for Google OAuth popup to postMessage back to the opener window.
+// "same-origin-allow-popups" allows popups opened by this page to communicate
+// back, which is exactly what Google's Sign-In SDK needs.
+// Without this, the browser blocks the postMessage and Google login fails.
+// ────────────────────────────────────────────────────────────────────────────
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["Cross-Origin-Opener-Policy"] = "same-origin-allow-popups";
+    await next();
+});
+
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
@@ -203,7 +216,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = "swagger";
 });
 
-// IMPORTANT: CORS must come FIRST
+// IMPORTANT: CORS must come FIRST before auth middleware
 app.UseCors("FrontendPolicy");
 
 app.UseMiddleware<JwtMiddleware>();
