@@ -12,7 +12,7 @@ using QuantityMeasurementRepository.Interface;
 using QuantityMeasurementRepository.Services;
 using StackExchange.Redis;
 using System.Text;
-using Npgsql.EntityFrameworkCore.PostgreSQL; 
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -31,7 +31,7 @@ builder.Services.AddControllers()
     });
 
 // ════════════════════════════════════════════════════════════════════════════
-// 2. DATABASE — EF Core (SQL Server if configured, else In-Memory)
+// 2. DATABASE — EF Core (PostgreSQL if configured, else In-Memory)
 // ════════════════════════════════════════════════════════════════════════════
 var connectionString = config.GetConnectionString("DefaultConnection");
 
@@ -111,14 +111,26 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // ════════════════════════════════════════════════════════════════════════════
-// 7. CORS — wide open for local development on any port
+// 7. CORS
+// Reads allowed origins from environment variable ALLOWED_ORIGINS
+// (comma-separated). Falls back to the Render frontend URL.
+// For local dev, localhost:4200 is always included.
 // ════════════════════════════════════════════════════════════════════════════
+var allowedOriginsEnv = config["ALLOWED_ORIGINS"] ?? "";
+var allowedOrigins = allowedOriginsEnv
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+    .ToList();
+
+// Always include the deployed frontend and local dev
+allowedOrigins.Add("https://measure-mate-frontend.onrender.com");
+allowedOrigins.Add("http://localhost:4200");
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendPolicy", policy =>
     {
         policy
-            .SetIsOriginAllowed(_ => true)   // Allow any origin for local dev
+            .WithOrigins(allowedOrigins.Distinct().ToArray())
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
@@ -162,7 +174,6 @@ builder.Services.AddSwaggerGen(options =>
 // ════════════════════════════════════════════════════════════════════════════
 var app = builder.Build();
 
-// Apply migrations / ensure DB created
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<QuantityMeasurementDbContext>();
@@ -176,7 +187,7 @@ using (var scope = app.Services.CreateScope())
     catch (Exception ex)
     {
         var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-        logger.LogWarning(ex, "Database migration/creation failed — continuing with in-memory fallback.");
+        logger.LogWarning(ex, "Database migration/creation failed — using in-memory fallback.");
     }
 }
 
