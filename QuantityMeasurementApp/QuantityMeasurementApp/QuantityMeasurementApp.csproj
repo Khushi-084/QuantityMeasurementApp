@@ -13,6 +13,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration"        Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json"   Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.0" />
+    <!-- EF Core + Npgsql needed to build DbContext options in the controller -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore"             Version="9.0.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL"     Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging"              Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console"      Version="9.0.0" />
   </ItemGroup>
 
   <!-- Copy appsettings.json to build output so app can read it at runtime -->

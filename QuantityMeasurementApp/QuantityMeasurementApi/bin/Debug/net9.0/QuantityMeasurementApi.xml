@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuantityMeasurementApi</name>
+    </assembly>
+    <members>
+        <member name="T:QuantityMeasurementApi.Controller.QuantityMeasurementController">
+             <summary>
+             PUBLIC operations (compare / convert / add / subtract / divide):
+               - No JWT required — anyone can call them.
+               - If a valid JWT is present, the userId is extracted and stored on the record
+                 so the operation appears in that user's history.
+               - If no JWT, userId = null — record is saved but never shown in anyone's history.
+            
+             PROTECTED history endpoints:
+               - [Authorize] — must have a valid JWT.
+               - Only return records belonging to the authenticated user.
+             </summary>
+        </member>
+        <member name="T:QuantityMeasurementApi.Controller.UserController">
+            <summary>
+            UC17: User authentication REST controller.
+            POST /api/v1/users/signup  → Register (no token needed)
+            POST /api/v1/users/login   → Authenticate, receive JWT (no token needed)
+            GET  /api/v1/users/profile → View own profile (JWT required)
+            </summary>
+        </member>
+        <member name="M:QuantityMeasurementApi.Controller.UserController.Signup(QuantityMeasurementModel.Dto.SignupRequestDTO)">
+             <summary>Register a new user account.</summary>
+             <remarks>
+             Password: min 8 chars, must include uppercase, lowercase, digit and special character.
+             Stored as BCrypt hash (work factor 12) — never plain text.
+            
+                 POST /api/v1/users/signup
+                 { "username": "john_doe", "email": "john@example.com", "password": "SecureP@ss1" }
+             </remarks>
+        </member>
+        <member name="M:QuantityMeasurementApi.Controller.UserController.Login(QuantityMeasurementModel.Dto.LoginRequestDTO)">
+             <summary>Login and receive a JWT Bearer token.</summary>
+             <remarks>
+             Use the returned token in all protected endpoints:
+             Authorization: Bearer {token}
+            
+                 POST /api/v1/users/login
+                 { "email": "john@example.com", "password": "SecureP@ss1" }
+             </remarks>
+        </member>
+        <member name="M:QuantityMeasurementApi.Controller.UserController.GetProfile">
+            <summary>Get the authenticated user's profile.</summary>
+        </member>
+        <member name="T:QuantityMeasurementApi.Interface.IQuantityMeasurementApi">
+            <summary>UC17: Marker interface for the Web API application entry point.</summary>
+        </member>
+        <member name="T:QuantityMeasurementApi.Middleware.GlobalExceptionMiddleware">
+             <summary>
+             UC17: Centralized exception handling middleware.
+             Registered first in Program.cs — wraps every controller and middleware beneath it.
+             Converts all unhandled exceptions into structured JSON ErrorResponseDTO.
+            
+             Mapping:
+               QuantityMeasurementException → 400 Bad Request
+               AuthException (401/403/409)  → corresponding status
+               NotFoundException            → 404 Not Found
+               DivideByZeroException        → 400 Bad Request
+               Everything else              → 500 Internal Server Error
+             </summary>
+        </member>
+        <member name="T:QuantityMeasurementApi.Middleware.JwtMiddleware">
+            <summary>
+            UC17: JWT extraction middleware.
+            Reads Bearer token from Authorization header, validates it via IJwtService,
+            then populates HttpContext.User so [Authorize] and User.FindFirstValue() work.
+            </summary>
+        </member>
+    </members>
+</doc>

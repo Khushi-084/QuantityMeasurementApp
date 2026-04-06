@@ -5,7 +5,8 @@ using QuantityMeasurementBusinessLayer;
 using QuantityMeasurementRepository;
 using QuantityMeasurementBusinessLayer.Exception;
 using QuantityMeasurementRepository.Database;
-using QuantityMeasurementRepository.Util;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace QuantityMeasurementApp.Controller
 {
@@ -96,8 +97,15 @@ namespace QuantityMeasurementApp.Controller
                     Console.WriteLine("\n[Program] Database Repository selected V");
                     Console.WriteLine("[ApplicationConfig] Repository type: database");
                     Console.WriteLine("[App] Connecting to SQL Server (SSMS)...");
-                    var dbConfig = new DatabaseConfig(config);
-                    return new QuantityMeasurementDatabaseRepository(dbConfig);
+                    var connectionString = config.GetConnectionString("DefaultConnection")
+                        ?? throw new InvalidOperationException("Missing 'DefaultConnection' in appsettings.json");
+                    var dbOptions = new DbContextOptionsBuilder<QuantityMeasurementDbContext>()
+                        .UseNpgsql(connectionString)
+                        .Options;
+                    var dbContext = new QuantityMeasurementDbContext(dbOptions);
+                    var logger    = LoggerFactory.Create(b => b.AddConsole())
+                                                 .CreateLogger<QuantityMeasurementDatabaseRepository>();
+                    return new QuantityMeasurementDatabaseRepository(dbContext, logger);
                 }
                 else
                 {
