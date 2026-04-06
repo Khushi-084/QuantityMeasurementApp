@@ -47,7 +47,7 @@ namespace QuantityMeasurementRepository.Migrations
                     Email = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     PasswordHash = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
                     Role = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false, defaultValue: "User"),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "GETUTCDATE()"),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
                     LastLoginAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false, defaultValue: true)
                 },
