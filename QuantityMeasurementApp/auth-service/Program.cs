@@ -2,9 +2,9 @@ using BusinessService.Auth.Interface;
 using BusinessService.Auth.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.OpenApi;
-using Scalar.AspNetCore;
+using Microsoft.OpenApi.Models;
 using RepositoryService.Auth.Cache;
 using RepositoryService.Auth.DBContext;
 using RepositoryService.Auth.Interface;
@@ -62,6 +62,7 @@ else
     builder.Services.AddSingleton<IUserCache, NullUserCache>();
     Console.WriteLine("[AUTH] Redis not configured — using NullUserCache.");
 }
+builder.Services.AddSwaggerGen();
 
 // ── Repository ────────────────────────────────────────────────────────────
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -99,13 +100,23 @@ builder.Services.AddCors(opts =>
         p.SetIsOriginAllowed(_ => true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()));
 
 // ── OpenAPI (replaces Swashbuckle) ─────────────────────────────────────────
-builder.Services.AddOpenApi(options =>
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
 {
-    options.AddDocumentTransformer((document, context, ct) =>
+    c.SwaggerDoc("v1", new() { Title = "Auth Service", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new()
     {
-        document.Info.Title   = "Auth Service";
-        document.Info.Version = "v1";
-        return Task.CompletedTask;
+        Name = "Authorization", Type = SecuritySchemeType.Http,
+        Scheme = "bearer", BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter your JWT token"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme { Reference = new() { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
+            Array.Empty<string>()
+        }
     });
 });
 
@@ -126,14 +137,11 @@ using (var scope = app.Services.CreateScope())
         log.LogWarning(ex, "DB migration failed — using in-memory fallback.");
     }
 }
-
+app.UseSwagger();
+app.UseSwaggerUI();
 // ── Pipeline ──────────────────────────────────────────────────────────────
 // ── Scalar UI at /scalar/v1 (replaces Swagger UI) ─────────────────────────
-app.MapOpenApi();
-app.MapScalarApiReference(options =>
-{
-    options.Title = "Auth Service";
-});
+
 app.UseCors("InternalPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
@@ -141,7 +149,7 @@ app.MapControllers();
 
 app.MapGet("/health", () => Results.Ok(new { service = "auth-service", status = "healthy" }));
 
-app.MapGet("/health/cache", async (IConnectionMultiplexer? redis) =>
+app.MapGet("/health/cache", async ([FromServices] IConnectionMultiplexer? redis) =>
 {
     if (redis is null)
         return Results.Ok(new { service = "auth-service", cache = "disabled", status = "healthy" });

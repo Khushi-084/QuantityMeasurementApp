@@ -3,8 +3,7 @@ using BusinessService.Qma.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.OpenApi;
-using Scalar.AspNetCore;
+using Microsoft.OpenApi.Models;
 using RepositoryService.Qma.DBContext;
 using RepositoryService.Qma.Interface;
 using RepositoryService.Qma.Services;
@@ -14,20 +13,26 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-var config  = builder.Configuration;
+var config = builder.Configuration;
 
-// ── Controllers + JSON ────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// Controllers + JSON
+// ─────────────────────────────────────────────
 builder.Services.AddControllers()
     .AddJsonOptions(opts =>
     {
-        opts.JsonSerializerOptions.PropertyNamingPolicy        = JsonNamingPolicy.CamelCase;
-        opts.JsonSerializerOptions.DefaultIgnoreCondition      = JsonIgnoreCondition.WhenWritingNull;
+        opts.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
         opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 
-// ── Database ──────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// Database
+// ─────────────────────────────────────────────
 var connectionString = config.GetConnectionString("DefaultConnection");
+
 if (!string.IsNullOrWhiteSpace(connectionString))
+{
     builder.Services.AddDbContext<QmaDbContext>(opts =>
         opts.UseSqlServer(connectionString, sql =>
         {
@@ -35,101 +40,170 @@ if (!string.IsNullOrWhiteSpace(connectionString))
             sql.EnableRetryOnFailure(3);
             sql.MigrationsAssembly("QmaService");
         }));
+}
 else
+{
     builder.Services.AddDbContext<QmaDbContext>(opts =>
         opts.UseInMemoryDatabase("QmaDb"));
+}
 
-// ── Redis Cache ───────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// Redis
+// ─────────────────────────────────────────────
 var redisConn = config.GetConnectionString("Redis");
+
 if (!string.IsNullOrWhiteSpace(redisConn))
 {
     try
     {
         builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
             ConnectionMultiplexer.Connect(redisConn));
+
         Console.WriteLine($"[QMA] Redis cache enabled: {redisConn}");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"[QMA] Redis failed ({ex.Message}) — measurement cache disabled.");
+        Console.WriteLine($"[QMA] Redis failed ({ex.Message}) — cache disabled");
     }
 }
 
-// ── Repository ────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// DI
+// ─────────────────────────────────────────────
 builder.Services.AddScoped<IQmaRepository, QmaRepository>();
-
-// ── Business Layer ────────────────────────────────────────────────────────
 builder.Services.AddScoped<IQmaService, QmaServiceImpl>();
 
-// ── JWT Auth ──────────────────────────────────────────────────────────────
-var jwtKey    = config["Jwt:Key"]      ?? throw new InvalidOperationException("Jwt:Key is required.");
-var jwtIssuer = config["Jwt:Issuer"]   ?? "QuantityMeasurementApi";
-var jwtAud    = config["Jwt:Audience"] ?? "QuantityMeasurementApi";
+// ─────────────────────────────────────────────
+// JWT Auth
+// ─────────────────────────────────────────────
+var jwtKey = config["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key is required.");
+var jwtIssuer = config["Jwt:Issuer"] ?? "QuantityMeasurementApi";
+var jwtAudience = config["Jwt:Audience"] ?? "QuantityMeasurementApi";
 
-builder.Services.AddAuthentication(opts =>
-{
-    opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    opts.DefaultChallengeScheme    = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(opts =>
-{
-    opts.TokenValidationParameters = new TokenValidationParameters
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey         = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
-        ValidateIssuer           = true, ValidIssuer   = jwtIssuer,
-        ValidateAudience         = true, ValidAudience = jwtAud,
-        ValidateLifetime         = true, ClockSkew     = TimeSpan.Zero
-    };
-});
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+
+            ValidateIssuer = true,
+            ValidIssuer = jwtIssuer,
+
+            ValidateAudience = true,
+            ValidAudience = jwtAudience,
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
 builder.Services.AddAuthorization();
 
-// ── CORS ──────────────────────────────────────────────────────────────────
-builder.Services.AddCors(opts =>
-    opts.AddPolicy("InternalPolicy", p =>
-        p.SetIsOriginAllowed(_ => true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()));
-
-// ── OpenAPI (replaces Swashbuckle) ─────────────────────────────────────────
-builder.Services.AddOpenApi(options =>
+// ─────────────────────────────────────────────
+// CORS
+// ─────────────────────────────────────────────
+builder.Services.AddCors(options =>
 {
-    options.AddDocumentTransformer((document, context, ct) =>
+    options.AddPolicy("InternalPolicy", policy =>
+        policy.SetIsOriginAllowed(_ => true)
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials());
+});
+
+// ─────────────────────────────────────────────
+// Swagger
+// ─────────────────────────────────────────────
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
     {
-        document.Info.Title   = "QMA Service";
-        document.Info.Version = "v1";
-        return Task.CompletedTask;
+        Title = "QMA Service",
+        Version = "v1",
+        Description = "Quantity Measurement API Service"
+    });
+
+    // JWT support in Swagger UI
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter JWT token"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
     });
 });
 
 var app = builder.Build();
 
-// ── Migrate / create DB ───────────────────────────────────────────────────
+// ─────────────────────────────────────────────
+// DB Init
+// ─────────────────────────────────────────────
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<QmaDbContext>();
+
     try
     {
-        if (db.Database.IsRelational()) db.Database.Migrate();
-        else db.Database.EnsureCreated();
+        if (db.Database.IsRelational())
+            db.Database.Migrate();
+        else
+            db.Database.EnsureCreated();
     }
     catch (Exception ex)
     {
         var log = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-        log.LogWarning(ex, "DB migration failed — using in-memory fallback.");
+        log.LogWarning(ex, "DB migration failed — using fallback");
     }
 }
 
-// ── Pipeline ──────────────────────────────────────────────────────────────
-// ── Scalar UI at /scalar/v1 (replaces Swagger UI) ─────────────────────────
-app.MapOpenApi();
-app.MapScalarApiReference(options =>
+// ─────────────────────────────────────────────
+// Middleware
+// ─────────────────────────────────────────────
+if (app.Environment.IsDevelopment())
 {
-    options.Title = "QMA Service";
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "QMA Service v1");
+        c.RoutePrefix = "swagger";
+    });
+}
+
 app.UseCors("InternalPolicy");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 
-app.MapGet("/health", () => Results.Ok(new { service = "qma-service", status = "healthy" }));
+// ─────────────────────────────────────────────
+// Health Check
+// ─────────────────────────────────────────────
+app.MapGet("/health", () => Results.Ok(new
+{
+    service = "qma-service",
+    status = "healthy"
+}));
 
 app.Run();

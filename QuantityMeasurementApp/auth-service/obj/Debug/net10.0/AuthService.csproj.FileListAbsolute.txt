@@ -1,0 +1,9 @@
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.csproj.AssemblyReference.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.GeneratedMSBuildEditorConfig.editorconfig
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.AssemblyInfoInputs.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.AssemblyInfo.cs
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.csproj.CoreCompileInputs.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.MvcApplicationPartsAssemblyInfo.cs
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.MvcApplicationPartsAssemblyInfo.cache
+D:\QuantityMeasurementApp\QuantityMeasurementApp\auth-service\obj\Debug\net10.0\AuthService.sourcelink.json
