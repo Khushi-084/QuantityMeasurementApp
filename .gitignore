@@ -1,0 +1,99 @@
+# ==============================
+# .NET Core / ASP.NET Core
+# ==============================
+bin/
+obj/
+out/
+publish/
+
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# ==============================
+# Visual Studio / VS Code
+# ==============================
+.vs/
+.vscode/
+*.code-workspace
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# ==============================
+# ASP.NET Scaffolding
+# ==============================
+ScaffoldingReadMe.txt
+
+# ==============================
+# EF Core
+# ==============================
+Migrations/*Designer.cs
+Migrations/*.resx
+*.db
+*.db-shm
+*.db-wal
+
+# ==============================
+# User secrets
+# ==============================
+secrets.json
+appsettings.Development.json.user
+
+# ==============================
+# Logs
+# ==============================
+*.log
+logs/
+
+# ==============================
+# ASP.NET Data Protection Keys
+# ==============================
+keys/
+DataProtection-Keys/
+
+# ==============================
+# Docker
+# ==============================
+**/docker-compose.override.yml
+**/.dockerignore
+
+# ==============================
+# OS files
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Redis / temp dumps
+# ==============================
+dump.rdb
+
+# ==============================
+# Node (if frontend added later)
+# ==============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==============================
+# Publish folders (important)
+# ==============================
+**/publish/
+**/PublishOutput/
+
+# ==============================
+# Local config overrides
+# ==============================
+appsettings.Local.json
+.env
+.env.*
